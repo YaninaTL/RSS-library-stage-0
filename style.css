@@ -771,7 +771,9 @@ iframe.active {
 #contacts .container-contacts .left-col-cont {
   display: block;
 }
-#contacts .container-contacts .right-col-cont #map iframe {
-  width: 69em;
-  height: 41em;
+#contacts .container-contacts .right-col-cont iframe.map {
+  display: flex;
+  width: 69.6rem !important;
+  height: 41.4rem !important;
+  z-index: 999 !important;
 }/*# sourceMappingURL=style.css.map */
