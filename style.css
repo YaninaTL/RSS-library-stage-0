@@ -740,9 +740,10 @@ iframe.active {
 #contacts h3,
 #contacts span {
   color: #000;
-  text-align: center;
+  text-align: left;
   font-family: Inter;
   font-size: 1.5rem;
+  margin-bottom: 1em;
   font-weight: 700;
   line-height: 4rem; /* 200% */
   letter-spacing: 0.2rem;
@@ -751,7 +752,7 @@ iframe.active {
 #contacts ul {
   list-style: none;
   color: #000;
-  text-align: center;
+  text-align: left;
   font-family: Inter;
   font-size: 1.5rem;
   font-weight: 400;
@@ -759,11 +760,18 @@ iframe.active {
   letter-spacing: 0.2rem;
   text-transform: capitalize;
 }
-#contacts .left-col-cont .map {
-  width: 100%;
-  height: 100vh;
+#contacts .tel {
+  margin-bottom: 1em;
 }
-#contacts .left-col-cont iframe {
+#contacts .container-contacts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#contacts .container-contacts .left-col-cont {
+  display: block;
+}
+#contacts .container-contacts .right-col-cont #map iframe {
   width: 69em;
   height: 41em;
 }/*# sourceMappingURL=style.css.map */

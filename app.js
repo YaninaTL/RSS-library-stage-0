@@ -428,4 +428,13 @@ window.addEventListener("message", function (event) {
   }
 });
 
-//a try
+//MAP
+function initMap() {
+  // Example: Create a map centered at a specific location
+  var mapOptions = {
+    center: { lat: 40.6956458, lng: -73.9912976 },
+    zoom: 15, // Adjust the zoom level as needed
+  };
+
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
