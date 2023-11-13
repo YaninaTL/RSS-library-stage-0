@@ -902,7 +902,7 @@ iframe.active {
 
     .right-col-cont {
       iframe.map {
-        display: flex;
+        // display: flex;
         width: 69.6rem !important;
         height: 41.4rem !important;
 
@@ -911,3 +911,86 @@ iframe.active {
     }
   }
 }
+// Add classes to iframes to fix js/try affect only the first one then 2 and 3 ?
+
+#cards {
+  .wrapper-libcard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    .left-col-card {
+      width: 60em;
+      height: 38em;
+
+      h3 {
+        color: #000;
+        font-family: Inter;
+        font-size: 1.8rem;
+        font-weight: 400;
+        letter-spacing: 0.06rem;
+
+        text-align: center;
+        margin-bottom: 1.5em;
+      }
+
+      form {
+        border: 2px solid var(--clr-accent);
+        border-radius: 2px;
+        padding: 1em;
+        background-color: white;
+        .center-form {
+          background-color: #bb945f;
+
+          padding-bottom: 3em;
+        }
+        .center-form h2 {
+          color: #000;
+          font-family: Forum;
+          font-size: 1.8rem;
+          font-weight: 400;
+          line-height: 5rem; /* 166.667% */
+          letter-spacing: 0.06rem;
+          margin: 0;
+          text-align: left;
+
+          margin-left: 1.5em;
+        }
+        h2::before {
+          display: none;
+        }
+
+        .input-frame {
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        input {
+          border: 2px solid white;
+          border-radius: 2px;
+          width: 40em;
+          height: 3em;
+        }
+        input::placeholder {
+          padding-left: 0.5em;
+        }
+
+        button {
+          color: #0c0c0e;
+          text-align: center;
+          font-family: Inter;
+          font-size: 1.2rem;
+          font-weight: 700;
+          letter-spacing: 0.1rem;
+
+          margin-top: 1em;
+        }
+      }
+    }
+  }
+}
+
+//What I learned? USE CLASSES NOT ELEMENTS

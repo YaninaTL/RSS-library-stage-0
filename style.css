@@ -772,8 +772,79 @@ iframe.active {
   display: block;
 }
 #contacts .container-contacts .right-col-cont iframe.map {
-  display: flex;
   width: 69.6rem !important;
   height: 41.4rem !important;
   z-index: 999 !important;
+}
+
+#cards .wrapper-libcard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#cards .wrapper-libcard .left-col-card {
+  width: 60em;
+  height: 38em;
+}
+#cards .wrapper-libcard .left-col-card h3 {
+  color: #000;
+  font-family: Inter;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+#cards .wrapper-libcard .left-col-card form {
+  border: 2px solid var(--clr-accent);
+  border-radius: 2px;
+  padding: 1em;
+  background-color: white;
+}
+#cards .wrapper-libcard .left-col-card form .center-form {
+  background-color: #bb945f;
+  padding-bottom: 3em;
+}
+#cards .wrapper-libcard .left-col-card form .center-form h2 {
+  color: #000;
+  font-family: Forum;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 5rem; /* 166.667% */
+  letter-spacing: 0.06rem;
+  margin: 0;
+  text-align: left;
+  margin-left: 1.5em;
+}
+#cards .wrapper-libcard .left-col-card form h2::before {
+  display: none;
+}
+#cards .wrapper-libcard .left-col-card form .input-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+#cards .wrapper-libcard .left-col-card form input {
+  border: 2px solid white;
+  border-radius: 2px;
+  width: 40em;
+  height: 3em;
+}
+#cards .wrapper-libcard .left-col-card form input::-moz-placeholder {
+  padding-left: 0.5em;
+}
+#cards .wrapper-libcard .left-col-card form input::placeholder {
+  padding-left: 0.5em;
+}
+#cards .wrapper-libcard .left-col-card form button {
+  color: #0c0c0e;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin-top: 1em;
 }/*# sourceMappingURL=style.css.map */
