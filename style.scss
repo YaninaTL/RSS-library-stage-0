@@ -948,7 +948,7 @@ iframe.active {
         .center-form h2 {
           color: #000;
           font-family: Forum;
-          font-size: 1.8rem;
+          font-size: 2.3rem;
           font-weight: 400;
           line-height: 5rem; /* 166.667% */
           letter-spacing: 0.06rem;
@@ -984,10 +984,10 @@ iframe.active {
           font-size: 1.5rem;
           font-weight: 700;
           letter-spacing: 0.1rem;
-
+          border: 1px solid black;
           margin-top: 1em;
           padding: 0.5em 1em;
-
+          background-color: #ffffff;
           cursor: pointer;
         }
         button:hover {
@@ -998,7 +998,55 @@ iframe.active {
         }
       }
     }
+    .right-col-card {
+      height: 38em;
+      h3 {
+        color: #000;
+        text-align: right;
+        font-family: Forum;
+        font-size: 2.5rem;
+        font-weight: 400;
+        letter-spacing: 0.06rem;
+      }
+      p {
+        color: #000;
+        text-align: right;
+        font-family: Inter;
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 4rem; /* 200% */
+        letter-spacing: 0.04rem;
+      }
+
+      .frame {
+        width: 45em;
+        margin: 3em 0;
+      }
+
+      .btns {
+        text-align: right;
+        button {
+          color: #0c0c0e;
+          font-family: Inter;
+          font-size: 1rem;
+          font-weight: 700;
+          letter-spacing: 0.1rem;
+          background-color: #ffffff;
+          margin: 0.5em 1em;
+          padding: 0.5em 1em;
+          border: 1px solid black;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: #bb945f;
+        }
+      }
+    }
   }
 }
+// ADD MEDIA
+// FOOTER
 
-//What I learned? USE CLASSES NOT ELEMENTS
+//What I learned?
+//USE CLASSES NOT ELEMENTS
+//apply var that is more useful (contains more parameters that are common to the page elements)

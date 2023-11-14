@@ -809,7 +809,7 @@ iframe.active {
 #cards .wrapper-libcard .left-col-card form .center-form h2 {
   color: #000;
   font-family: Forum;
-  font-size: 1.8rem;
+  font-size: 2.3rem;
   font-weight: 400;
   line-height: 5rem; /* 166.667% */
   letter-spacing: 0.06rem;
@@ -841,8 +841,10 @@ iframe.active {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
+  border: 1px solid black;
   margin-top: 1em;
   padding: 0.5em 1em;
+  background-color: #ffffff;
   cursor: pointer;
 }
 #cards .wrapper-libcard .left-col-card form button:hover {
@@ -850,4 +852,46 @@ iframe.active {
 }
 #cards .wrapper-libcard .left-col-card form .action-btn {
   text-align: center;
+}
+#cards .wrapper-libcard .right-col-card {
+  height: 38em;
+}
+#cards .wrapper-libcard .right-col-card h3 {
+  color: #000;
+  text-align: right;
+  font-family: Forum;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+}
+#cards .wrapper-libcard .right-col-card p {
+  color: #000;
+  text-align: right;
+  font-family: Inter;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 4rem; /* 200% */
+  letter-spacing: 0.04rem;
+}
+#cards .wrapper-libcard .right-col-card .frame {
+  width: 45em;
+  margin: 3em 0;
+}
+#cards .wrapper-libcard .right-col-card .btns {
+  text-align: right;
+}
+#cards .wrapper-libcard .right-col-card .btns button {
+  color: #0c0c0e;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  background-color: #ffffff;
+  margin: 0.5em 1em;
+  padding: 0.5em 1em;
+  border: 1px solid black;
+  cursor: pointer;
+}
+#cards .wrapper-libcard .right-col-card .btns button:hover {
+  background-color: #bb945f;
 }/*# sourceMappingURL=style.css.map */
