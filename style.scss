@@ -913,6 +913,7 @@ iframe.active {
 }
 // Add classes to iframes to fix js/try affect only the first one then 2 and 3 ?
 
+//Digital Library Cards
 #cards {
   .wrapper-libcard {
     display: flex;
@@ -973,20 +974,27 @@ iframe.active {
           border-radius: 2px;
           width: 40em;
           height: 3em;
-        }
-        input::placeholder {
-          padding-left: 0.5em;
+          padding-left: 1em;
         }
 
         button {
           color: #0c0c0e;
           text-align: center;
           font-family: Inter;
-          font-size: 1.2rem;
+          font-size: 1.5rem;
           font-weight: 700;
           letter-spacing: 0.1rem;
 
           margin-top: 1em;
+          padding: 0.5em 1em;
+
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: #bb945f;
+        }
+        .action-btn {
+          text-align: center;
         }
       }
     }
