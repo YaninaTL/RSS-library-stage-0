@@ -356,6 +356,7 @@ iframe.active {
 // sections
 .section {
   margin-bottom: 1em;
+
   h2 {
     color: var(--clr-accent-dark);
     font-family: var(--ff-head);
@@ -1100,7 +1101,39 @@ footer {
       }
     }
   }
+  .part2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 4em 0 1em 0;
+
+    position: relative;
+
+    #date,
+    .username {
+      color: #fff;
+      text-align: center;
+      font-family: Inter;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 4rem; /* 200% */
+      letter-spacing: 0.2rem;
+    }
+
+    span {
+      color: #fff;
+      text-align: center;
+      font-family: Inter;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 2rem; /* 100% */
+      letter-spacing: 0.2rem;
+    }
+  }
 }
+//deal with the margin from the section
+
 //What I learned?
 //USE CLASSES NOT ELEMENTS
 //apply var that is more useful (contains more parameters that are common to the page elements)
