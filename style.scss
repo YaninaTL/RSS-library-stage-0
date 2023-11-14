@@ -1046,7 +1046,61 @@ iframe.active {
 }
 // ADD MEDIA
 // FOOTER
+footer {
+  background: #0c0c0e;
+  padding: 2em;
 
+  .part1 {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .part1::before {
+    position: absolute;
+    content: "";
+    background-color: white;
+    height: 1px;
+    width: 100%;
+    bottom: -2em;
+  }
+
+  .left-col-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: flex-start;
+    justify-content: center;
+    span {
+      color: #fff;
+      font-family: Inter;
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 2em; /* 133.333% */
+    }
+    .icons {
+      display: flex;
+      gap: 1em;
+      cursor: pointer;
+    }
+  }
+  .right-col-footer {
+    .working {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      span {
+        color: #fff;
+        font-family: Inter;
+        font-size: 1.5rem;
+        font-weight: 300;
+        line-height: 1.5em; /* 133.333% */
+      }
+    }
+  }
+}
 //What I learned?
 //USE CLASSES NOT ELEMENTS
 //apply var that is more useful (contains more parameters that are common to the page elements)
