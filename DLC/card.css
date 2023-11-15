@@ -36,11 +36,11 @@ html {
 #cards .wrapper-libcard .left-col-card h3 {
   color: #000;
   font-family: Inter;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 400;
   letter-spacing: 0.06rem;
   text-align: center;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 #cards .wrapper-libcard .left-col-card form {
   border: 2px solid var(--clr-accent);
@@ -148,7 +148,7 @@ html {
 .section h2 {
   color: var(--clr-accent-dark);
   font-family: var(--ff-head);
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: 400;
   line-height: 4rem; /* 100% */
   letter-spacing: 0.2rem;
@@ -156,7 +156,7 @@ html {
   text-align: center;
   position: relative;
   margin-top: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 .section h2::before {
   position: absolute;
@@ -167,4 +167,23 @@ html {
   bottom: 0;
   left: 50%; /* Move it to the horizontal center of the container */
   transform: translateX(-50%); /* Center it horizontally */
+  top: 1.5em;
+}
+
+.stats {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.first-card,
+.second-card,
+.third-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
 }/*# sourceMappingURL=card.css.map */
