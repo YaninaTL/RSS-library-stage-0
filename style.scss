@@ -355,7 +355,7 @@ iframe.active {
 
 // sections
 .section {
-  margin-bottom: 1em;
+  // margin-bottom: 1em;
 
   h2 {
     color: var(--clr-accent-dark);
@@ -369,7 +369,7 @@ iframe.active {
     text-align: center;
     position: relative;
 
-    margin-top: 0.5em;
+    margin-top: 1em;
     margin-bottom: 1em;
   }
   h2::before {
@@ -1051,6 +1051,8 @@ footer {
   background: #0c0c0e;
   padding: 2em;
 
+  position: relative;
+
   .part1 {
     position: relative;
 
@@ -1130,6 +1132,15 @@ footer {
       line-height: 2rem; /* 100% */
       letter-spacing: 0.2rem;
     }
+  }
+
+  i {
+    color: white;
+    font-size: 2.4rem;
+
+    position: absolute;
+    bottom: 0;
+    left: 1em;
   }
 }
 //deal with the margin from the section

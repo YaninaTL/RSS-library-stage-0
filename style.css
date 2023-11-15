@@ -313,9 +313,6 @@ iframe.active {
   display: block;
 }
 
-.section {
-  margin-bottom: 1em;
-}
 .section h2 {
   color: var(--clr-accent-dark);
   font-family: var(--ff-head);
@@ -326,7 +323,7 @@ iframe.active {
   text-transform: capitalize;
   text-align: center;
   position: relative;
-  margin-top: 0.5em;
+  margin-top: 1em;
   margin-bottom: 1em;
 }
 .section h2::before {
@@ -899,6 +896,7 @@ iframe.active {
 footer {
   background: #0c0c0e;
   padding: 2em;
+  position: relative;
 }
 footer .part1 {
   position: relative;
@@ -970,4 +968,11 @@ footer .part2 span {
   font-weight: 400;
   line-height: 2rem; /* 100% */
   letter-spacing: 0.2rem;
+}
+footer i {
+  color: white;
+  font-size: 2.4rem;
+  position: absolute;
+  bottom: 0;
+  left: 1em;
 }/*# sourceMappingURL=style.css.map */
