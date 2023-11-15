@@ -1,0 +1,170 @@
+:root {
+  --clr-accent: #bb945f;
+  --clr-accent-neutral: #8e8e8e;
+  --clr-accent-dark: #0c0c0e;
+  --clr-primary-neutral: #ffffff;
+  --clr-primary-dark: #000000;
+  --ff-primary: "Inter", sans-serif;
+  --ff-head: "Forum", serif;
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-head);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+#cards .wrapper-libcard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#cards .wrapper-libcard .left-col-card {
+  width: 60em;
+  height: 38em;
+}
+#cards .wrapper-libcard .left-col-card h3 {
+  color: #000;
+  font-family: Inter;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+#cards .wrapper-libcard .left-col-card form {
+  border: 2px solid var(--clr-accent);
+  border-radius: 2px;
+  padding: 1em;
+  background-color: white;
+}
+#cards .wrapper-libcard .left-col-card form .center-form {
+  background-color: #bb945f;
+  padding-bottom: 3em;
+}
+#cards .wrapper-libcard .left-col-card form .center-form h2 {
+  color: #000;
+  font-family: Forum;
+  font-size: 2.3rem;
+  font-weight: 400;
+  line-height: 5rem; /* 166.667% */
+  letter-spacing: 0.06rem;
+  margin: 0;
+  text-align: left;
+  margin-left: 1.5em;
+}
+#cards .wrapper-libcard .left-col-card form h2::before {
+  display: none;
+}
+#cards .wrapper-libcard .left-col-card form .input-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+#cards .wrapper-libcard .left-col-card form input {
+  border: 2px solid white;
+  border-radius: 2px;
+  width: 40em;
+  height: 3em;
+  padding-left: 1em;
+}
+#cards .wrapper-libcard .left-col-card form button {
+  color: #0c0c0e;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  border: 1px solid black;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+#cards .wrapper-libcard .left-col-card form button:hover {
+  background-color: #bb945f;
+}
+#cards .wrapper-libcard .left-col-card form .action-btn {
+  text-align: center;
+}
+#cards .wrapper-libcard .right-col-card {
+  height: 38em;
+}
+#cards .wrapper-libcard .right-col-card h3 {
+  color: #000;
+  text-align: right;
+  font-family: Forum;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+}
+#cards .wrapper-libcard .right-col-card p {
+  color: #000;
+  text-align: right;
+  font-family: Inter;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 4rem; /* 200% */
+  letter-spacing: 0.04rem;
+}
+#cards .wrapper-libcard .right-col-card .frame {
+  width: 45em;
+  margin: 3em 0;
+}
+#cards .wrapper-libcard .right-col-card .btns {
+  text-align: right;
+}
+#cards .wrapper-libcard .right-col-card .btns button {
+  color: #0c0c0e;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  background-color: #ffffff;
+  margin: 0.5em 1em;
+  padding: 0.5em 1em;
+  border: 1px solid black;
+  cursor: pointer;
+}
+#cards .wrapper-libcard .right-col-card .btns button:hover {
+  background-color: #bb945f;
+}
+
+.section {
+  margin: 2em;
+}
+.section h2 {
+  color: var(--clr-accent-dark);
+  font-family: var(--ff-head);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 4rem; /* 100% */
+  letter-spacing: 0.2rem;
+  text-transform: capitalize;
+  text-align: center;
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.section h2::before {
+  position: absolute;
+  content: "";
+  background-color: var(--clr-accent-dark);
+  height: 1px;
+  width: 2em;
+  bottom: 0;
+  left: 50%; /* Move it to the horizontal center of the container */
+  transform: translateX(-50%); /* Center it horizontally */
+}/*# sourceMappingURL=card.css.map */
