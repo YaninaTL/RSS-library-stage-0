@@ -121,4 +121,17 @@ input[type=submit]:hover {
   line-height: normal;
   letter-spacing: 0.1rem;
   text-decoration-line: underline;
+}
+
+#close-popup {
+  position: absolute;
+  right: 1em;
+  top: 0;
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+#close-popup svg {
+  width: 1em;
+  height: 1em;
 }/*# sourceMappingURL=lstyle.css.map */

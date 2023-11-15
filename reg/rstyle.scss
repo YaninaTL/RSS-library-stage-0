@@ -136,3 +136,18 @@ input[type="submit"]:hover {
     text-decoration-line: underline;
   }
 }
+#close-popup {
+  position: absolute;
+  right: 1em;
+  top: 0;
+
+  background-color: transparent;
+  border: transparent;
+
+  cursor: pointer;
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+}
