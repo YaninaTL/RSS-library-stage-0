@@ -1,0 +1,227 @@
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Profile Page</title>
+</head>
+<body>
+
+<nav class="navbar">
+    <!-- Navbar content -->
+    <div class="profile-icon" id="profileIcon">&#128100;</div>
+    <div class="dropdown" id="profileDropdown">
+        <div class="dropdown-content">
+            <div id="profileTitle">Profile</div>
+            <ul id="profileLinks">
+                <!-- Placeholder for login and register links -->
+                <li id="loginLink">Log In</li>
+                <li id="registerLink">Register</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="modal" id="loginModal">
+    <!-- Login modal content -->
+    <!-- Placeholder for login form -->
+    <div class="center">
+        <h1>Login</h1>
+        <!-- Login form structure -->
+        <form action="" method="post">
+            <!-- Input fields for email and password -->
+            <input type="text" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Log In">
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="registerModal">
+    <!-- Register modal content -->
+    <!-- Placeholder for registration form -->
+    <div class="center">
+        <h1>Register</h1>
+        <!-- Registration form structure -->
+        <form action="" method="post">
+            <!-- Input fields for first name, last name, email, and password -->
+            <input type="text" name="firstName" placeholder="First Name" required><br>
+            <input type="text" name="lastName" placeholder="Last Name" required><br>
+            <input type="text" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="profileModal">
+    <!-- Profile modal content -->
+    <!-- Placeholder for user profile information -->
+    <div class="center profile-popup" id="profile-popup">
+        <h1>My Profile</h1>
+        <!-- Placeholder for profile details -->
+        <!-- Example: Display user's name, email, etc. -->
+        <p>Name: John Doe</p>
+        <p>Email: john@example.com</p>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
+
+
+css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.profile-icon {
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+MODAL none!!
+
+
+js 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const profileIcon = document.getElementById('profileIcon');
+    const profileDropdown = document.getElementById('profileDropdown');
+    const loginLink = document.getElementById('loginLink');
+    const registerLink = document.getElementById('registerLink');
+    const loginModal = document.getElementById('loginModal');
+    const registerModal = document.getElementById('registerModal');
+    const profileModal = document.getElementById('profileModal');
+
+    profileIcon.addEventListener('click', toggleDropdown);
+    loginLink.addEventListener('click', openLoginModal);
+    registerLink.addEventListener('click', openRegisterModal);
+
+    function toggleDropdown() {
+        profileDropdown.style.display = (profileDropdown.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function openLoginModal() {
+        loginModal.style.display = 'block';
+        registerModal.style.display = 'none';
+        profileModal.style.display = 'none';
+    }
+
+    function openRegisterModal() {
+        registerModal.style.display = 'block';
+        loginModal.style.display = 'none';
+        profileModal.style.display = 'none';
+    }
+
+    const storedEmail = 'john.doe@hotmail.com'; // Simulated stored email
+    const storedCard = 'F00234030'; // Simulated stored card number
+    const storedPassword = '12345%JD'; // Simulated stored password
+
+    const loginForm = document.querySelector('#loginModal form');
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const enteredEmail = loginForm.elements.email.value;
+        const enteredPassword = loginForm.elements.password.value;
+
+        if (enteredEmail === storedEmail && enteredPassword === storedPassword) {
+            // Login successful
+            localStorage.setItem('isLoggedIn', JSON.stringify(true));
+            updateProfileDropdown();
+            loginModal.style.display = 'none';
+            alert('Login successful!');
+        } else {
+            // Login failed
+            alert('Something went wrong. Please check your credentials.');
+        }
+    });
+
+    function updateProfileDropdown() {
+        const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
+        if (isLoggedIn) {
+            // User is logged in
+            loginLink.textContent = 'My Profile';
+            registerLink.textContent = 'Log Out';
+            loginLink.removeEventListener('click', openLoginModal);
+            loginLink.addEventListener('click', openProfileModal);
+            registerLink.removeEventListener('click', openRegisterModal);
+            registerLink.addEventListener('click', logOut);
+        } else {
+            // User is not logged in
+            loginLink.textContent = 'Log In';
+            registerLink.textContent = 'Register';
+            loginLink.addEventListener('click', openLoginModal);
+            registerLink.addEventListener('click', openRegisterModal);
+        }
+    }
+
+    function openProfileModal() {
+        profileModal.style.display = 'block';
+        // Display user profile details or fetch from localStorage
+        // Example: Update profile details in profileModal
+        profileModal.innerHTML = `
+            <div class="center profile-popup" id="profile-popup">
+                <h1>My Profile</h1>
+                <p>Name: John Doe</p>
+                <p>Email: ${storedEmail}</p>
+                <p>Card Number: ${storedCard}</p>
+            </div>
+        `;
+    }
+
+    function logOut() {
+        localStorage.removeItem('isLoggedIn');
+        updateProfileDropdown();
+    }
+});
