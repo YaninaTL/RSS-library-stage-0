@@ -54,6 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const registerLink = document.getElementById("registerLink");
   const loginModal = document.getElementById("loginModal");
   const closeLoginModalButton = document.getElementById("close-login-popup"); // Updated ID
+  const registerLinkLoginPopup = document.getElementById(
+    "registerLinkLoginPopup"
+  );
   const registerModal = document.getElementById("registerModal");
   const profileModal = document.getElementById("profileModal");
   const closeProfileModalButton = document.getElementById("close-popup"); // Added close button
@@ -65,13 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
   closeLoginModalButton.addEventListener("click", function () {
     loginModal.style.display = "none";
   });
-  closeProfileModalButton.addEventListener("click", closeProfileModal); // Event listener for close button
-
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && loginModal.style.display === "block") {
       loginModal.style.display = "none";
     }
   }); //Event listener for close button with Esc key
+
+  registerLinkLoginPopup.addEventListener("click", function (event) {
+    event.preventDefault();
+    openRegisterModal();
+    loginModal.style.display = "none"; // Hide the login modal
+  }); // Open the register modal from the Register link in log in popup
+
+  closeProfileModalButton.addEventListener("click", closeProfileModal); // Event listener for close button
 
   function toggleDropdown() {
     profileDropdown.style.display =
