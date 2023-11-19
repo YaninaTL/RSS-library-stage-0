@@ -33,7 +33,7 @@ html
         <!-- Login form structure -->
         <form action="" method="post">
             <!-- Input fields for email and password -->
-            <input type="text" name="email" placeholder="Email" required><br>
+            <input type="text" name="identifier" placeholder="Email or Card Number" required><br>
             <input type="password" name="password" placeholder="Password" required><br>
             <input type="submit" value="Log In">
         </form>
@@ -72,6 +72,7 @@ html
 <script src="main.js"></script>
 </body>
 </html>
+
 
 
 css
@@ -156,14 +157,18 @@ document.addEventListener('DOMContentLoaded', function() {
         loginModal.style.display = 'block';
         registerModal.style.display = 'none';
         profileModal.style.display = 'none';
+        profileDropdown.style.display = 'none'; // Hide dropdown when login modal opens
     }
 
     function openRegisterModal() {
         registerModal.style.display = 'block';
         loginModal.style.display = 'none';
         profileModal.style.display = 'none';
+        profileDropdown.style.display = 'none'; // Hide dropdown when register modal opens
     }
 
+  const storedName = 'John';
+  const storedSurname = 'Doe'
     const storedEmail = 'john.doe@hotmail.com'; // Simulated stored email
     const storedCard = 'F00234030'; // Simulated stored card number
     const storedPassword = '12345%JD'; // Simulated stored password
@@ -172,14 +177,15 @@ document.addEventListener('DOMContentLoaded', function() {
     loginForm.addEventListener('submit', function(event) {
         event.preventDefault();
         
-        const enteredEmail = loginForm.elements.email.value;
+        const enteredIdentifier = loginForm.elements.identifier.value;
         const enteredPassword = loginForm.elements.password.value;
 
-        if (enteredEmail === storedEmail && enteredPassword === storedPassword) {
+        if ((enteredIdentifier === storedEmail || enteredIdentifier === storedCard) && enteredPassword === storedPassword) {
             // Login successful
             localStorage.setItem('isLoggedIn', JSON.stringify(true));
             updateProfileDropdown();
             loginModal.style.display = 'none';
+            profileDropdown.style.display = 'none'; // Hide dropdown after successful login
             alert('Login successful!');
         } else {
             // Login failed
@@ -190,15 +196,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateProfileDropdown() {
         const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'));
         if (isLoggedIn) {
-            // User is logged in
             loginLink.textContent = 'My Profile';
             registerLink.textContent = 'Log Out';
-            loginLink.removeEventListener('click', openLoginModal);
             loginLink.addEventListener('click', openProfileModal);
-            registerLink.removeEventListener('click', openRegisterModal);
             registerLink.addEventListener('click', logOut);
         } else {
-            // User is not logged in
             loginLink.textContent = 'Log In';
             registerLink.textContent = 'Register';
             loginLink.addEventListener('click', openLoginModal);
@@ -208,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function openProfileModal() {
         profileModal.style.display = 'block';
+        profileDropdown.style.display = 'none'; // Hide dropdown when profile modal opens
         // Display user profile details or fetch from localStorage
         // Example: Update profile details in profileModal
         profileModal.innerHTML = `

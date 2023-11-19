@@ -40,22 +40,22 @@
               <li><a href="#contacts" class="scroll-link">Contacts</a></li>
               <li><a href="#card" class="scroll-link">Library Card</a></li>
               <!-- dropdown menu -->
-              <li class="icon action">
-                <div class="profile" id="profile-button">
-                  <a class="profile-link" href="#">
-                    <img src="./img/icon_profile.svg" alt="icon_profile" />
-                  </a>
+              <li>
+                <div class="icon action" id="profileIcon">
+                  <img
+                    class="profile-link"
+                    src="./img/icon_profile.svg"
+                    alt="icon_profile"
+                  />
                 </div>
-                <div class="menu">
-                  <h3>Profile</h3>
-                  <ul>
-                    <li>
-                      <a href="#" id="first" target="_blank">My Profile</a>
-                    </li>
-                    <li>
-                      <a href="#" id="second" target="_blank">Log Out</a>
-                    </li>
-                  </ul>
+                <div class="menu dropdown" id="profileDropdown">
+                  <div class="dropdown-content">
+                    <h3 id="profileTitle">Profile</h3>
+                    <ul id="profileLinks">
+                      <li id="loginLink">Log In</li>
+                      <li id="registerLink">Register</li>
+                    </ul>
+                  </div>
                 </div>
               </li>
               <!-- end of the dropdown menu -->
@@ -64,6 +64,174 @@
         </div>
       </nav>
 
+      <!-- MODALS -->
+      <div class="center" id="loginModal">
+        <button id="close-login-popup">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="19"
+            height="19"
+            viewBox="0 0 19 19"
+            fill="none"
+          >
+            <path d="M2 16.8507L17 2.00001" stroke="#0C0C0E" stroke-width="3" />
+            <path d="M2 2.14928L17 17" stroke="#0C0C0E" stroke-width="3" />
+          </svg>
+        </button>
+        <h1>Login</h1>
+        <form action="" method="post">
+          <div class="txt-field">
+            <input type="text" name="identifier" id="identifier" required />
+            <label for="identifier">E-mail or readers card</label>
+          </div>
+          <div class="txt-field">
+            <input type="password" name="password" id="password" required />
+            <label for="password">Password</label>
+          </div>
+          <!-- <div class="pass">Forgot Password?</div> -->
+          <input type="submit" value="Log In" />
+          <div class="signup-link">
+            Don’t have an account?<a href="#" id="registerLink">Register</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal" id="registerModal">
+        <!-- Register modal content -->
+        <!-- Placeholder for registration form -->
+        <div class="center">
+          <h1>Register</h1>
+          <!-- Registration form structure -->
+          <form action="" method="post">
+            <!-- Input fields for first name, last name, email, and password -->
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              required
+            /><br />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              required
+            /><br />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              required
+            /><br />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            /><br />
+            <input type="submit" value="Register" />
+          </form>
+        </div>
+      </div>
+
+      <div class="modal" id="profileModal">
+        <!-- Profile modal content -->
+        <div class="center profile-popup" id="profile-popup">
+          <button id="close-popup">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="19"
+              height="19"
+              viewBox="0 0 19 19"
+              fill="none"
+            >
+              <path
+                d="M2 16.8507L17 2.00001"
+                stroke="#0C0C0E"
+                stroke-width="3"
+              />
+              <path d="M2 2.14928L17 17" stroke="#0C0C0E" stroke-width="3" />
+            </svg>
+          </button>
+          <div class="left-col">
+            <div class="profile-data">
+              <div class="avatar">
+                <img src="" alt="" class="profile-img" />
+                <div class="letters">JD</div>
+              </div>
+              <div class="profile-name-container">
+                <h3 class="profile-name">John Doe</h3>
+              </div>
+            </div>
+          </div>
+          <div class="right-col">
+            <h1>My profile</h1>
+            <div class="stats">
+              <div class="first-card">
+                <h3>Visits</h3>
+                <img src="./img/Union.svg" alt="" />
+                <div class="number">23</div>
+              </div>
+              <div class="second-card">
+                <h3>bonuses</h3>
+                <img src="./img/Star.svg" alt="" />
+                <div class="number">1240</div>
+              </div>
+              <div class="third-card">
+                <h3>Books</h3>
+                <img src="./img/book.svg" alt="" />
+                <div class="number">2</div>
+              </div>
+            </div>
+            <div class="books">
+              <h2>Your books</h2>
+              <ul>
+                <li><a href="#">The Last Queen, Clive Irving</a></li>
+                <li><a href="#">Dominicana, Angie Cruz</a></li>
+              </ul>
+            </div>
+            <div class="card-number">
+              <h3>Card number</h3>
+              <!-- <a href="#F00234030">F00234030</a> -->
+              <!-- copy -->
+              <div class="copy-container">
+                <a href="">
+                  <input type="text" id="copy-text" value="F00234030" disabled
+                /></a>
+                <button id="copy-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="12"
+                    viewBox="0 0 14 12"
+                    fill="none"
+                  >
+                    <rect
+                      x="2.46826"
+                      y="0.25"
+                      width="10.5917"
+                      height="9.5"
+                      rx="0.75"
+                      stroke="black"
+                      stroke-width="0.5"
+                    />
+                    <rect
+                      x="0.25"
+                      y="2.25"
+                      width="10.5917"
+                      height="9.5"
+                      rx="0.75"
+                      fill="white"
+                      stroke="black"
+                      stroke-width="0.5"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- main banner welcome -->
       <div class="banner">
         <div class="container">
@@ -71,15 +239,6 @@
             Welcome <br />
             to the Brooklyn Library
           </h2>
-        </div>
-        <div id="profile-popup-container">
-          <!-- Include profile popup in other HTML files -->
-          <iframe
-            id="profile-popup-iframe"
-            src="./profile/profile.html"
-            frameborder="0"
-            scrolling="no"
-          ></iframe>
         </div>
       </div>
     </header>

@@ -46,82 +46,191 @@ window.addEventListener("scroll", function () {
 const date = document.getElementById("date");
 date.innerHTML = new Date().getFullYear();
 
-//popup profile
+//PROFILE
 document.addEventListener("DOMContentLoaded", function () {
-  const profileButton = document.getElementById("profile-button");
-  const menu = document.querySelector(".menu");
+  const profileIcon = document.getElementById("profileIcon");
+  const profileDropdown = document.getElementById("profileDropdown");
+  const loginLink = document.getElementById("loginLink");
+  const registerLink = document.getElementById("registerLink");
+  const loginModal = document.getElementById("loginModal");
+  const closeLoginModalButton = document.getElementById("close-login-popup"); // Updated ID
+  const registerModal = document.getElementById("registerModal");
+  const profileModal = document.getElementById("profileModal");
+  const closeProfileModalButton = document.getElementById("close-popup"); // Added close button
 
-  // Replace this with your own logic to check if the user is logged in
-  const isUserLoggedIn = true; // Change this based on your authentication system
+  profileIcon.addEventListener("click", toggleDropdown);
+  loginLink.addEventListener("click", openLoginModal);
+  registerLink.addEventListener("click", openRegisterModal);
 
-  if (isUserLoggedIn) {
-    // User is logged in, modify the menu
-    const profileLink = document.createElement("li");
-    profileLink.innerHTML = '<a href="#" id="my-profile-link">My Profile</a>'; // "My Profile" for logged-in users
-    menu.querySelector("ul").innerHTML = ""; // Clear the existing menu items
-    menu.querySelector("ul").appendChild(profileLink); // Add the new menu item
+  closeLoginModalButton.addEventListener("click", function () {
+    loginModal.style.display = "none";
+  });
+  closeProfileModalButton.addEventListener("click", closeProfileModal); // Event listener for close button
 
-    const logoutLink = document.createElement("li");
-    logoutLink.innerHTML = '<a href="#">Log Out</a>'; // "Log Out" for logged-in users
-    menu.querySelector("ul").appendChild(logoutLink); // Add the new menu item
-
-    // Add more menu items for logged-in users if needed
-  } else {
-    // User is not logged in
-    // Add menu items for logged-out users
-    const loginLink = document.createElement("li");
-    loginLink.innerHTML =
-      '<a href="./login/login.html" target="_blank">Log In</a>';
-    menu.querySelector("ul").appendChild(loginLink);
-
-    const registerLink = document.createElement("li");
-    registerLink.innerHTML =
-      '<a href="./reg/reg.html" target="_blank">Register</a>';
-    menu.querySelector("ul").appendChild(registerLink);
+  function toggleDropdown() {
+    profileDropdown.style.display =
+      profileDropdown.style.display === "block" ? "none" : "block";
   }
 
-  profileButton.addEventListener("click", function (event) {
-    event.stopPropagation(); // Prevent the click event from reaching the body
+  function openLoginModal() {
+    loginModal.style.display = "block";
+    registerModal.style.display = "none";
+    profileModal.style.display = "none";
+    profileDropdown.style.display = "none";
+  }
 
-    if (menu.style.visibility === "hidden" || menu.style.visibility === "") {
-      menu.style.visibility = "visible";
-      menu.style.opacity = "1";
+  function openRegisterModal() {
+    registerModal.style.display = "block";
+    loginModal.style.display = "none";
+    profileModal.style.display = "none";
+    profileDropdown.style.display = "none";
+  }
+
+  const storedName = "John"; // Simulated stored name
+  const storedSurname = "Doe"; // Simulated stored surname
+  const storedEmail = "john.doe@hotmail.com"; // Simulated stored email
+  const storedCard = "F00234030"; // Simulated stored card number
+  const storedPassword = "12345%JD"; // Simulated stored password
+
+  const loginForm = document.querySelector("#loginModal form");
+  loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const enteredIdentifier = loginForm.elements.identifier.value;
+    const enteredPassword = loginForm.elements.password.value;
+
+    if (
+      (enteredIdentifier === storedEmail || enteredIdentifier === storedCard) &&
+      enteredPassword === storedPassword
+    ) {
+      localStorage.setItem("isLoggedIn", JSON.stringify(true));
+      updateProfileDropdown();
+      loginModal.style.display = "none";
+      profileDropdown.style.display = "none";
+      alert("Login successful!");
     } else {
-      menu.style.visibility = "hidden";
-      menu.style.opacity = "0";
+      alert("Something went wrong. Please check your credentials.");
     }
   });
 
-  // Handle the "My Profile" link click event
-  const myProfileLink = document.getElementById("my-profile-link");
-  myProfileLink.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent the link from navigating to a new page
+  function updateProfileDropdown() {
+    const isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+    if (isLoggedIn) {
+      loginLink.textContent = "My Profile";
+      registerLink.textContent = "Log Out";
+      loginLink.addEventListener("click", openProfileModal);
+      registerLink.addEventListener("click", logOut);
+    } else {
+      loginLink.textContent = "Log In";
+      registerLink.textContent = "Register";
+      loginLink.addEventListener("click", openLoginModal);
+      registerLink.addEventListener("click", openRegisterModal);
+    }
+  }
 
-    // Show the profile popup
-    const profilePopup = document.querySelector(
-      "#profile-popup-container iframe"
-    );
-    profilePopup.classList.add("active");
-  });
+  function openProfileModal() {
+    profileModal.style.display = "block";
+    profileDropdown.style.display = "none";
+    profileModal.innerHTML = `
+            <div class="center profile-popup" id="profile-popup">
+                <button id="close-popup">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="19"
+                        height="19"
+                        viewBox="0 0 19 19"
+                        fill="none"
+                    >
+                        <path d="M2 16.8507L17 2.00001" stroke="#0C0C0E" stroke-width="3" />
+                        <path d="M2 2.14928L17 17" stroke="#0C0C0E" stroke-width="3" />
+                    </svg>
+                </button>
+                <div class="left-col">
+                    <div class="profile-data">
+                        <div class="avatar">
+                            <img src="" alt="" class="profile-img" />
+                            <div class="letters">JD</div>
+                        </div>
+                        <div class="profile-name-container">
+                            <h3 class="profile-name">${storedName} ${storedSurname}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-col">
+                    <h1>My profile</h1>
+                    <div class="stats">
+                        <div class="first-card">
+                            <h3>Visits</h3>
+                            <img src="./img/Union.svg" alt="" />
+                            <div class="number">23</div>
+                        </div>
+                        <div class="second-card">
+                            <h3>bonuses</h3>
+                            <img src="./img/Star.svg" alt="" />
+                            <div class="number">1240</div>
+                        </div>
+                        <div class="third-card">
+                            <h3>Books</h3>
+                            <img src="./img/book.svg" alt="" />
+                            <div class="number">2</div>
+                        </div>
+                    </div>
+                    <div class="books">
+                        <h2>Your books</h2>
+                        <ul>
+                            <li><a href="#">The Last Queen, Clive Irving</a></li>
+                            <li><a href="#">Dominicana, Angie Cruz</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-number">
+                        <h3>Card number</h3>
+                        <div class="copy-container">
+                            <a href="">
+                                <input type="text" id="copy-text" value="${storedCard}" disabled />
+                            </a>
+                            <button id="copy-button">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="14"
+                                    height="12"
+                                    viewBox="0 0 14 12"
+                                    fill="none"
+                                >
+                                    <rect
+                                        x="2.46826"
+                                        y="0.25"
+                                        width="10.5917"
+                                        height="9.5"
+                                        rx="0.75"
+                                        stroke="black"
+                                        stroke-width="0.5"
+                                    />
+                                    <rect
+                                        x="0.25"
+                                        y="2.25"
+                                        width="10.5917"
+                                        height="9.5"
+                                        rx="0.75"
+                                        fill="white"
+                                        stroke="black"
+                                        stroke-width="0.5"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+  }
 
-  // Close the menu when clicking outside of it
-  document.body.addEventListener("click", function () {
-    menu.style.visibility = "hidden";
-    menu.style.opacity = "0";
-  });
+  function closeProfileModal() {
+    profileModal.style.display = "none";
+  }
 
-  menu.addEventListener("click", function (event) {
-    event.stopPropagation(); // Prevent the click event from closing the menu
-  });
-});
-
-//iframe
-
-window.addEventListener("message", function (event) {
-  if (event.data.closePopup) {
-    // Hide the iframe containing the popup profile
-    const profilePopupIframe = document.getElementById("profile-popup-iframe");
-    profilePopupIframe.style.display = "none";
+  function logOut() {
+    localStorage.removeItem("isLoggedIn");
+    updateProfileDropdown();
   }
 });
 
@@ -211,23 +320,6 @@ applyPagination();
 window.addEventListener("resize", applyPagination);
 
 // CARDS
-// const seasonButtons = document.querySelectorAll('input[name="season"]');
-// const cards = document.querySelectorAll(".card");
-
-// seasonButtons.forEach((button) => {
-//   button.addEventListener("change", () => {
-//     const selectedSeason = button.value;
-
-//     cards.forEach((card) => {
-//       card.classList.remove("active");
-
-//       if (card.classList.contains(selectedSeason)) {
-//         card.classList.add("active");
-//       }
-//     });
-//   });
-// });
-
 // Show the current season
 const seasonButtons = document.querySelectorAll('input[name="season"]');
 const cards = document.querySelectorAll(".card");
@@ -298,51 +390,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // fix gallery big imgs -> sometimes don't have time to load?
 
-// Buy -> OWN
-// FOCUS
-// // Get all elements with the class "button"
-// const buttons = document.querySelectorAll(".button");
-
-// // Function to reset all buttons to their default state
-// function resetButtons() {
-//   buttons.forEach((button) => {
-//     button.textContent = "Buy";
-//     button.classList.remove("active");
-//   });
-// }
-
-// // Iterate through each button
-// buttons.forEach((button) => {
-//   // Add a click event listener to each button
-//   button.addEventListener("click", function () {
-//     resetButtons(); // Reset all buttons
-//     button.textContent = "Own"; // Set the clicked button to "Own"
-//     button.classList.add("active");
-//   });
-// });
-
-// HOVER
-// // Get all elements with the class "button"
-// const button = document.querySelectorAll(".button");
-
-// // Function to handle the hover effect
-// function handleHover(button) {
-//   button.addEventListener("mouseenter", function () {
-//     button.textContent = "Own";
-//   });
-//   button.addEventListener("mouseleave", function () {
-//     button.textContent = "Buy";
-//   });
-// }
-
-// // Iterate through each button and apply the hover effect
-// button.forEach((button) => {
-//   handleHover(button);
-// });
-
-// IF USER BUYS A BOOK -> ADD CLASS OWNED
-//change the bnt name
-
 //BUYING
 // Function to open the modal
 function openModal() {
@@ -369,5 +416,3 @@ window.addEventListener("message", function (event) {
     profilePopupIframe.style.display = "none";
   }
 });
-
-//MAP
