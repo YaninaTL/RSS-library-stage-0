@@ -163,7 +163,7 @@ li {
 
   padding: 2em 0;
 
-  z-index: 99; //?
+  z-index: 10; //to prevent the welcome title covering login modal
 
   h1 {
     font-family: var(--ff-head);
@@ -260,7 +260,7 @@ input[type="submit"]:hover {
     text-decoration-line: underline;
   }
 }
-#close-popup {
+#close-login-popup {
   position: absolute;
   right: 1em;
   top: 1em;

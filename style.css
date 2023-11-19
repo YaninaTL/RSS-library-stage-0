@@ -160,7 +160,7 @@ li {
   transform: translate(-50%, -50%);
   background: var(--clr-primary-neutral);
   padding: 2em 0;
-  z-index: 99;
+  z-index: 10;
 }
 #loginModal.center h1 {
   font-family: var(--ff-head);
@@ -250,7 +250,7 @@ input[type=submit]:hover {
   text-decoration-line: underline;
 }
 
-#close-popup {
+#close-login-popup {
   position: absolute;
   right: 1em;
   top: 1em;
@@ -258,7 +258,7 @@ input[type=submit]:hover {
   border: transparent;
   cursor: pointer;
 }
-#close-popup svg {
+#close-login-popup svg {
   width: 1em;
   height: 1em;
 }
