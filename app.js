@@ -67,6 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   closeProfileModalButton.addEventListener("click", closeProfileModal); // Event listener for close button
 
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && loginModal.style.display === "block") {
+      loginModal.style.display = "none";
+    }
+  }); //Event listener for close button with Esc key
+
   function toggleDropdown() {
     profileDropdown.style.display =
       profileDropdown.style.display === "block" ? "none" : "block";
