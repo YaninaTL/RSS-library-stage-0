@@ -65,7 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "loginLinkRegisterPopup"
   );
   const profileModal = document.getElementById("profileModal");
-  const closeProfileModalButton = document.getElementById("close-popup"); // Added close button
+  const closeProfileModalButton = document.getElementById(
+    "close-profile-popup"
+  );
 
   profileIcon.addEventListener("click", toggleDropdown);
   loginLink.addEventListener("click", openLoginModal);
@@ -101,7 +103,14 @@ document.addEventListener("DOMContentLoaded", function () {
     registerModal.style.display = "none"; // Hide the reg modal
   }); // Open the login modal from the Login link in reg popup
 
-  closeProfileModalButton.addEventListener("click", closeProfileModal); // Event listener for close button
+  closeProfileModalButton.addEventListener("click", function () {
+    profileModal.style.display = "none";
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && profileModal.style.display === "block") {
+      profileModal.style.display = "none";
+    }
+  }); //Event listener for close button with Esc key
 
   function toggleDropdown() {
     profileDropdown.style.display =
@@ -165,11 +174,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function openProfileModal() {
+    loginModal.style.display = "none"; // Close other modals
     profileModal.style.display = "block";
     profileDropdown.style.display = "none";
     profileModal.innerHTML = `
             <div class="center profile-popup" id="profile-popup">
-                <button id="close-popup">
+                <button id="close-profile-popup">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="19"
@@ -260,13 +270,15 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
   }
 
-  function closeProfileModal() {
-    profileModal.style.display = "none";
-  }
+  // function closeProfileModalButton() {
+  //   profileModal.style.display = "none";
+  // }
 
   function logOut() {
     localStorage.removeItem("isLoggedIn");
     updateProfileDropdown();
+    registerModal.style.display = "none"; //Hide register modal
+    location.reload(); // Reload the page after logout to reset the state
   }
 });
 
