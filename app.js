@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     profileModal.style.display = "none";
   });
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && profileModal.style.display === "block") {
+    if (event.key === "Escape" && profileModal.style.display !== "none") {
       profileModal.style.display = "none";
     }
   }); //Event listener for close button with Esc key
@@ -174,11 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function openProfileModal() {
-    loginModal.style.display = "none"; // Close other modals
-    profileModal.style.display = "block";
-    profileDropdown.style.display = "none";
-    profileModal.innerHTML = `
-            <div class="center profile-popup" id="profile-popup">
+    const profileContent = `<div class="center profile-popup" id="profile-popup">
                 <button id="close-profile-popup">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -266,8 +262,22 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
+            </div>`;
+
+    profileModal.innerHTML = profileContent;
+
+    // Reattach event listener to the close button
+    const updatedCloseProfileModalButton = document.getElementById(
+      "close-profile-popup"
+    );
+    updatedCloseProfileModalButton.addEventListener("click", function () {
+      profileModal.style.display = "none";
+    });
+
+    // Ensure profileModal is displayed after content update
+    profileModal.style.display = "block";
+
+    loginModal.style.display = "none"; // Add this line to hide the login modal
   }
 
   // function closeProfileModalButton() {
