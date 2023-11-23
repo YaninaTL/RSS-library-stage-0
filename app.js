@@ -174,30 +174,36 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function openProfileModal() {
+    function generateAvatarInitials(name, surname) {
+      return `${name.charAt(0)}${surname.charAt(0)}`;
+    }
+
+    const avatarInitials = generateAvatarInitials(storedName, storedSurname);
+
     const profileContent = `<div class="center profile-popup" id="profile-popup">
-                <button id="close-profile-popup">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="19"
-                        height="19"
-                        viewBox="0 0 19 19"
-                        fill="none"
-                    >
-                        <path d="M2 16.8507L17 2.00001" stroke="#0C0C0E" stroke-width="3" />
-                        <path d="M2 2.14928L17 17" stroke="#0C0C0E" stroke-width="3" />
-                    </svg>
-                </button>
-                <div class="left-col">
-                    <div class="profile-data">
-                        <div class="avatar">
-                            <img src="" alt="" class="profile-img" />
-                            <div class="letters">JD</div>
-                        </div>
-                        <div class="profile-name-container">
-                            <h3 class="profile-name">${storedName} ${storedSurname}</h3>
-                        </div>
-                    </div>
-                </div>
+    <button id="close-profile-popup">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="19"
+            height="19"
+            viewBox="0 0 19 19"
+            fill="none"
+        >
+            <path d="M2 16.8507L17 2.00001" stroke="#0C0C0E" stroke-width="3" />
+            <path d="M2 2.14928L17 17" stroke="#0C0C0E" stroke-width="3" />
+        </svg>
+    </button>
+    <div class="left-col">
+        <div class="profile-data">
+            <div class="avatar">
+                <img src="" alt="" class="profile-img" />
+                <div class="letters">${avatarInitials}</div>
+            </div>
+            <div class="profile-name-container">
+                <h3 class="profile-name">${storedName} ${storedSurname}</h3>
+            </div>
+        </div>
+    </div>
                 <div class="right-col">
                     <h1>My profile</h1>
                     <div class="stats">
@@ -279,10 +285,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loginModal.style.display = "none"; // Add this line to hide the login modal
   }
-
-  // function closeProfileModalButton() {
-  //   profileModal.style.display = "none";
-  // }
 
   function logOut() {
     localStorage.removeItem("isLoggedIn");
