@@ -497,7 +497,11 @@ input[type=submit]:hover {
   line-height: 2rem; /* 100% */
   max-width: 100px;
 }
+#profileModal.modal .card-number .copy-container a {
+  text-decoration: none;
+}
 #profileModal.modal .card-number #copy-button {
+  cursor: pointer;
   border: transparent;
   background-color: var(--clr-primary-neutral);
 }

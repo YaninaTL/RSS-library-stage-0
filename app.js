@@ -68,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeProfileModalButton = document.getElementById(
     "close-profile-popup"
   );
+  const copyButton = document.getElementById("copy-button");
+  const copyText = document.getElementById("copy-text");
 
   profileIcon.addEventListener("click", toggleDropdown);
   loginLink.addEventListener("click", openLoginModal);
@@ -284,6 +286,36 @@ document.addEventListener("DOMContentLoaded", function () {
     profileModal.style.display = "block";
 
     loginModal.style.display = "none"; // Add this line to hide the login modal
+
+    // Set up the copy functionality separately
+    function setupCopyButton() {
+      const copyButton = document.getElementById("copy-button");
+      const copyText = document.getElementById("copy-text");
+
+      copyButton.addEventListener("click", function () {
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        navigator.clipboard
+          .writeText(copyText.value)
+          .then(function () {
+            copyButton.textContent = "Copied!";
+            setTimeout(() => {
+              copyButton.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+  <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5"/>
+  <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5"/>
+</svg>`;
+            }, 1000); // Reset button text after 1 second
+          })
+          .catch(function (error) {
+            console.error("Failed to copy text: ", error);
+          });
+      });
+    }
+
+    // Call the setup function to initialize the copy functionality
+    setupCopyButton();
   }
 
   function logOut() {

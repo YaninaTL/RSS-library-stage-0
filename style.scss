@@ -557,7 +557,12 @@ input[type="submit"]:hover {
       max-width: 100px;
     }
 
+    .copy-container a {
+      text-decoration: none;
+    }
+
     #copy-button {
+      cursor: pointer;
       border: transparent;
       background-color: var(--clr-primary-neutral);
     }
