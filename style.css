@@ -436,9 +436,15 @@ input[type=submit]:hover {
 #profileModal.modal .third-card img {
   margin: 0.5em;
 }
-#profileModal.modal .first-card .number,
-#profileModal.modal .second-card .number,
-#profileModal.modal .third-card .number {
+#profileModal.modal .first-card .visits,
+#profileModal.modal .first-card .bonuses,
+#profileModal.modal .first-card .books,
+#profileModal.modal .second-card .visits,
+#profileModal.modal .second-card .bonuses,
+#profileModal.modal .second-card .books,
+#profileModal.modal .third-card .visits,
+#profileModal.modal .third-card .bonuses,
+#profileModal.modal .third-card .books {
   color: var(--clr-primary-dark);
   text-align: center;
   font-family: var(--ff-body);
@@ -448,7 +454,7 @@ input[type=submit]:hover {
   letter-spacing: 0.02rem;
   text-transform: capitalize;
 }
-#profileModal.modal .books h2 {
+#profileModal.modal .your-books h2 {
   color: var(--clr-accent-dark);
   text-align: left;
   font-family: var(--ff-body);
@@ -458,7 +464,7 @@ input[type=submit]:hover {
   line-height: 2rem; /* 80% */
   margin-bottom: 1em;
 }
-#profileModal.modal .books ul li a {
+#profileModal.modal .your-books ul li a {
   color: var(--clr-primary-dark);
   font-family: var(--ff-body);
   font-size: 1.5rem;
@@ -468,7 +474,7 @@ input[type=submit]:hover {
   text-transform: capitalize;
   text-decoration: none;
 }
-#profileModal.modal .books ul {
+#profileModal.modal .your-books ul {
   margin-bottom: 2em;
   margin-left: 2em;
 }

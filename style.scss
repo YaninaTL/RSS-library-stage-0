@@ -488,7 +488,9 @@ input[type="submit"]:hover {
       margin: 0.5em;
     }
 
-    .number {
+    .visits,
+    .bonuses,
+    .books {
       color: var(--clr-primary-dark);
       text-align: center;
       font-family: var(--ff-body);
@@ -500,7 +502,7 @@ input[type="submit"]:hover {
     }
   }
 
-  .books {
+  .your-books {
     h2 {
       color: var(--clr-accent-dark);
       text-align: left;
