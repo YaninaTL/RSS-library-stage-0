@@ -570,6 +570,7 @@ input[type="submit"]:hover {
     }
   }
 }
+
 @media screen and (min-width: 800px) {
   .nav-center {
     // width: 90vw;
@@ -1253,7 +1254,7 @@ main {
   .container-contacts {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 
     .left-col-cont {
       display: block;

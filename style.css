@@ -1078,7 +1078,7 @@ main {
 #contacts .container-contacts {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 #contacts .container-contacts .left-col-cont {
   display: block;
