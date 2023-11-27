@@ -1205,18 +1205,11 @@ main {
     flex-wrap: wrap;
   }
 
-  .position {
-    display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    gap: 3em;
-  }
-
   .position-2 {
     display: flex;
     align-content: center;
     justify-content: flex-end;
-    gap: 3em;
+    gap: 1em;
   }
 }
 

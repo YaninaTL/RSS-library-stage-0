@@ -1036,17 +1036,11 @@ main {
   justify-content: space-around;
   flex-wrap: wrap;
 }
-#coffee .position {
-  display: flex;
-  justify-content: flex-end;
-  align-content: center;
-  gap: 3em;
-}
 #coffee .position-2 {
   display: flex;
   align-content: center;
   justify-content: flex-end;
-  gap: 3em;
+  gap: 1em;
 }
 
 #contacts h3,
