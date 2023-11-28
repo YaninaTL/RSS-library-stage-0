@@ -1159,58 +1159,129 @@ main {
     display: none;
   }
 
-  ul {
+  // .left-menu {
+  //   width: 45%;
+  // }
+  // ul {
+  //   list-style: none;
+
+  //   li {
+  //     color: #000;
+  //     font-family: Inter;
+  //     font-size: 1.4rem;
+
+  //     font-weight: 400;
+  //     line-height: 4rem; /* 200% */
+  //     letter-spacing: 0.2rem;
+  //     text-transform: capitalize;
+
+  //     // display: flex;
+  //     // justify-items: flex-start;
+  //     // FIX NEEDED !!!
+  //   }
+
+  //   .line {
+  //     width: 5em;
+  //     height: 0.1em;
+  //     background-color: #bb945f;
+
+  //     display: flex;
+  //     align-self: center;
+  //   }
+
+  //   .price-menu {
+  //     color: #000;
+  //     font-family: Forum;
+  //     font-size: 1.4rem;
+  //     font-weight: 400;
+  //     line-height: 4rem; /* 200% */
+  //     letter-spacing: 0.2rem;
+  //     text-transform: capitalize;
+  //   }
+  // }
+
+  // .all-menu {
+  //   display: flex;
+  //   align-content: center;
+  //   justify-content: space-around;
+
+  //   flex-wrap: wrap;
+  // }
+
+  // .position-2 {
+  //   display: flex;
+  //   align-content: center;
+  //   justify-content: flex-end;
+  //   gap: 1em;
+  // }
+
+  /* Reset default list styles */
+  .left-menu,
+  .right-menu ul {
     list-style: none;
-
-    li {
-      color: #000;
-      font-family: Inter;
-      font-size: 1.4rem;
-
-      font-weight: 400;
-      line-height: 4rem; /* 200% */
-      letter-spacing: 0.2rem;
-      text-transform: capitalize;
-
-      // display: flex;
-      // justify-items: flex-start;
-      // FIX NEEDED !!!
-    }
-
-    .line {
-      width: 5em;
-      height: 0.1em;
-      background-color: #bb945f;
-
-      display: flex;
-      align-self: center;
-    }
-
-    .price-menu {
-      color: #000;
-      font-family: Forum;
-      font-size: 1.4rem;
-      font-weight: 400;
-      line-height: 4rem; /* 200% */
-      letter-spacing: 0.2rem;
-      text-transform: capitalize;
-    }
+    padding: 0;
   }
 
-  .all-menu {
+  /* Style for each menu item */
+  .position {
     display: flex;
-    align-content: center;
-    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5px; /* Adjust spacing between items */
 
-    flex-wrap: wrap;
+    color: #000;
+    font-family: Inter;
+    font-size: 1.4rem;
+
+    font-weight: 400;
+    line-height: 4rem; /* 200% */
+    letter-spacing: 0.2rem;
+    text-transform: capitalize;
   }
 
-  .position-2 {
+  /* Style for the menu item names */
+  .name-menu {
+    min-width: 150px; /* Fixed width for consistent spacing */
+    display: inline-block;
+  }
+
+  /* Style for the lines */
+  .line {
+    width: 5em;
+    height: 0.1em;
+    background-color: #bb945f;
+    margin: 0 2em; /* Adjust space between line and text */
+  }
+
+  .price-menu {
     display: flex;
-    align-content: center;
-    justify-content: flex-end;
-    gap: 1em;
+    align-items: center;
+    justify-content: flex-end; /* Align prices to the start of the line */
+    margin-left: 1em; /* Space between items and lines */
+
+    color: #000;
+    font-family: Forum;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 4rem; /* 200% */
+    letter-spacing: 0.2rem;
+    text-transform: capitalize;
   }
+  // /* Style for the prices */
+  // .price-menu {
+  //   display: flex;
+  //   align-items: center;
+  // }
+
+  // .currency {
+  //   width: 20px; /* Adjust the width of the currency area */
+  //   text-align: right;
+  //   margin-right: 5px; /* Adjust as needed for spacing */
+  // }
+
+  // .price {
+  //   flex-grow: 1;
+  //   text-align: left;
+  // }
 }
 
 #contacts {

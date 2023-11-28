@@ -980,6 +980,12 @@ main {
   display: block;
 }
 
+#coffee {
+  /* Reset default list styles */
+  /* Style for each menu item */
+  /* Style for the menu item names */
+  /* Style for the lines */
+}
 #coffee p {
   color: #000;
   text-align: center;
@@ -1002,10 +1008,15 @@ main {
 #coffee .title-menu::before {
   display: none;
 }
-#coffee ul {
+#coffee .left-menu,
+#coffee .right-menu ul {
   list-style: none;
+  padding: 0;
 }
-#coffee ul li {
+#coffee .position {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; /* Adjust spacing between items */
   color: #000;
   font-family: Inter;
   font-size: 1.4rem;
@@ -1014,14 +1025,21 @@ main {
   letter-spacing: 0.2rem;
   text-transform: capitalize;
 }
-#coffee ul .line {
+#coffee .name-menu {
+  min-width: 150px; /* Fixed width for consistent spacing */
+  display: inline-block;
+}
+#coffee .line {
   width: 5em;
   height: 0.1em;
   background-color: #bb945f;
-  display: flex;
-  align-self: center;
+  margin: 0 2em; /* Adjust space between line and text */
 }
-#coffee ul .price-menu {
+#coffee .price-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align prices to the start of the line */
+  margin-left: 1em; /* Space between items and lines */
   color: #000;
   font-family: Forum;
   font-size: 1.4rem;
@@ -1029,18 +1047,6 @@ main {
   line-height: 4rem; /* 200% */
   letter-spacing: 0.2rem;
   text-transform: capitalize;
-}
-#coffee .all-menu {
-  display: flex;
-  align-content: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-#coffee .position-2 {
-  display: flex;
-  align-content: center;
-  justify-content: flex-end;
-  gap: 1em;
 }
 
 #contacts h3,
