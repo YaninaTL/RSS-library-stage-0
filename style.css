@@ -1008,6 +1008,12 @@ main {
 #coffee .title-menu::before {
   display: none;
 }
+#coffee .all-menu {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 #coffee .left-menu,
 #coffee .right-menu ul {
   list-style: none;
@@ -1034,6 +1040,9 @@ main {
   height: 0.1em;
   background-color: #bb945f;
   margin: 0 2em; /* Adjust space between line and text */
+}
+#coffee .long {
+  margin-left: 1.4em;
 }
 #coffee .price-menu {
   display: flex;

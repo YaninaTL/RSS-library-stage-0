@@ -1200,13 +1200,13 @@ main {
   //   }
   // }
 
-  // .all-menu {
-  //   display: flex;
-  //   align-content: center;
-  //   justify-content: space-around;
+  .all-menu {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
 
-  //   flex-wrap: wrap;
-  // }
+    flex-wrap: wrap;
+  }
 
   // .position-2 {
   //   display: flex;
@@ -1250,6 +1250,9 @@ main {
     height: 0.1em;
     background-color: #bb945f;
     margin: 0 2em; /* Adjust space between line and text */
+  }
+  .long {
+    margin-left: 1.4em;
   }
 
   .price-menu {
