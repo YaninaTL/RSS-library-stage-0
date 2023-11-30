@@ -26,14 +26,13 @@ html {
 body {
   background: transparent;
   font-family: var(--ff-body);
-  padding-top: 3em;
 }
 
 .wrapper {
   background: var(--clr-primary-neutral);
   margin: 0 auto;
-  width: 65em;
-  height: 46em;
+  height: auto;
+  width: 100%;
 }
 
 header {
@@ -169,4 +168,56 @@ p {
   line-height: 2rem; /* 133.333% */
   letter-spacing: 0.2rem;
   margin-top: 0.5em;
+}
+
+.wrapper {
+  background: var(--clr-primary-neutral);
+  margin: 0 auto;
+  width: 65em;
+  height: 54em;
+  padding: 2em;
+  box-sizing: border-box;
+  overflow-y: auto; /* Add scrollbar when needed */
+}
+
+header {
+  background: var(--clr-primary-dark);
+  height: 10%;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  font-family: var(--ff-heading);
+  font-size: 2rem;
+  margin: 0;
+}
+
+#close-popup {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+main {
+  height: 85%;
+  padding: 1em;
+  overflow-y: auto; /* Add scrollbar when needed */
+}
+
+form .txt-field {
+  margin: 1em 0;
+}
+
+p {
+  color: #8e8e8e;
+  font-family: var(--ff-body);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: 0.2rem;
+  margin-top: 1em;
 }/*# sourceMappingURL=buy.css.map */
