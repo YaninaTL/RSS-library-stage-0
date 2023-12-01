@@ -542,11 +542,28 @@ document.addEventListener("DOMContentLoaded", function () {
       yearValue < currentYear ||
       yearValue > currentYear + 20
     ) {
-      expirationError.textContent = "Please enter a valid future year.";
+      expirationError.textContent = "Please enter a valid year.";
       yearInput.classList.add("error");
     } else {
       expirationError.textContent = "";
       yearInput.classList.remove("error");
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cvcInput = document.getElementById("CVC");
+  const cvcError = document.getElementById("cvc-error");
+
+  cvcInput.addEventListener("input", function () {
+    const cvcValue = cvcInput.value;
+    if (!/^\d+$/.test(cvcValue) || cvcValue.length > 4) {
+      cvcError.textContent =
+        "Please enter a valid CVC (numeric, up to 4 digits).";
+      cvcInput.classList.add("error");
+    } else {
+      cvcError.textContent = "";
+      cvcInput.classList.remove("error");
     }
   });
 });

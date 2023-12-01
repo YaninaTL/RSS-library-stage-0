@@ -635,15 +635,16 @@
             <div class="txt-field">
               <label for="month">Expiration date</label>
               <div class="card-date">
-                <input type="number" name="date" id="month" placeholder="MM" maxlength="2" required />
+                <input type="number" name="date" id="month" placeholder="MM" required maxlength="2"/>
                 <input type="number" name="date" id="year" placeholder="YY" maxlength="2" required />
               </div>
               <span id="expiration-error" class="error-message"></span>
             </div>
-            <div class="txt-field">
-              <label for="CVC">CVC</label>
-              <input type="number" name="CVC" id="CVC" class="cvc" required />
-            </div>
+<div class="txt-field">
+    <label for="CVC">CVC</label>
+    <input type="text" name="CVC" id="CVC" class="cvc" required pattern="[0-9]*" inputmode="numeric" maxlength="4" />
+</div>
+
             <div class="txt-field">
               <label for="cardholder">Cardholder name</label>
               <input type="text" name="cardholder" id="cardholder" required />
