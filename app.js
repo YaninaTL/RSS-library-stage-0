@@ -483,28 +483,70 @@ document.addEventListener("DOMContentLoaded", function () {
 // fix gallery big imgs -> sometimes don't have time to load?
 
 //BUYING
-// Function to open the modal
-function openModal() {
-  // Show the modal container
-  const modalContainer = document.getElementById("buying-popup");
-  modalContainer.classList.add("show-modal");
+// modal.js
 
-  // Send a message to the iframe to open its content
-  const iframe = document.getElementById("buying-popup-iframe");
-  iframe.contentWindow.postMessage({ openPopup: true }, "*");
-}
+document.addEventListener("DOMContentLoaded", function () {
+  const buyButtons = document.querySelectorAll(".buy-button");
+  const modal = document.getElementById("buy-popup");
+  const closeButton = document.getElementById("close-buy-popup");
 
-// Add a click event listener to the Buy button
-const buyButtons = document.querySelectorAll(".button");
-buyButtons.forEach(function (button) {
-  button.addEventListener("click", openModal);
+  buyButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      modal.style.display = "block";
+    });
+  });
+
+  closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
 });
 
-// When it's clicked out of the field -> close + btn and try esc btn
-window.addEventListener("message", function (event) {
-  if (event.data.closePopup) {
-    // Hide the iframe containing the popup profile
-    const profilePopupIframe = document.getElementById("buying-popup");
-    profilePopupIframe.style.display = "none";
-  }
+//validation of the form
+document.addEventListener("DOMContentLoaded", function () {
+  const numberInput = document.getElementById("card-number");
+  const numberError = document.getElementById("card-number-error");
+
+  numberInput.addEventListener("input", function () {
+    const inputValue = parseFloat(numberInput.value);
+    if (isNaN(inputValue) || inputValue <= 0) {
+      numberError.textContent = "Please enter a valid card number.";
+      numberInput.classList.add("error");
+    } else {
+      numberError.textContent = "";
+      numberInput.classList.remove("error");
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const monthInput = document.getElementById("month");
+  const yearInput = document.getElementById("year");
+  const expirationError = document.getElementById("expiration-error");
+
+  monthInput.addEventListener("input", function () {
+    const monthValue = parseInt(monthInput.value);
+    if (isNaN(monthValue) || monthValue <= 0 || monthValue > 12) {
+      expirationError.textContent = "Please enter a valid month (1-12).";
+      monthInput.classList.add("error");
+    } else {
+      expirationError.textContent = "";
+      monthInput.classList.remove("error");
+    }
+  });
+
+  yearInput.addEventListener("input", function () {
+    const yearValue = parseInt(yearInput.value);
+    const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
+    if (
+      isNaN(yearValue) ||
+      yearValue < currentYear ||
+      yearValue > currentYear + 20
+    ) {
+      expirationError.textContent = "Please enter a valid future year.";
+      yearInput.classList.add("error");
+    } else {
+      expirationError.textContent = "";
+      yearInput.classList.remove("error");
+    }
+  });
 });

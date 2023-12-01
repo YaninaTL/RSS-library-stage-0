@@ -903,6 +903,7 @@ main {
 
 #favorites {
   margin-right: 3em;
+  position: relative;
 
   h2 {
     // text-align: center;
@@ -1105,30 +1106,172 @@ main {
 }
 
 //MODAL buy
-/* Initially hide the modal container */
-.modal-container {
+
+.modal-buy-wrapper {
   display: none;
+  font-family: var(--ff-body);
+  background: var(--clr-primary-neutral);
+  margin: 0 auto;
+
+  width: 68em;
+  height: auto;
+  left: 50%;
+  top: 50%;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-}
+  transform: translate(-50%, -50%);
 
-/* Show the modal when the "show-modal" class is added */
-.modal-container.show-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  z-index: 10;
 
-#buying-popup-iframe {
-  border: none;
+  border: black 2px solid;
 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  display: block;
+  .modal-header {
+    background: var(--clr-primary-dark);
+    height: 6em;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10em;
+  }
+
+  h1 {
+    color: #fff;
+    text-align: center;
+    font-family: Forum;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 50% */
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+  }
+
+  #close-buy-popup {
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+
+  .modal-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 3em;
+
+    margin: 3em;
+  }
+
+  form .txt-field {
+    position: relative;
+    margin: 3em 0;
+
+    label {
+      color: #000;
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2rem; /* 133.333% */
+      letter-spacing: 0.03rem;
+
+      position: absolute;
+      top: -1em;
+      left: 0;
+      transform: translateY(-50%);
+
+      pointer-events: none;
+    }
+
+    input {
+      border: 1px solid #bb945f;
+    }
+  }
+
+  button {
+    background: transparent;
+    color: #0c0c0e;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.1rem;
+
+    border-radius: 0.2rem;
+    border: 1px solid #0c0c0e;
+
+    width: 7.5rem;
+    height: 3rem;
+
+    cursor: pointer;
+  }
+
+  button:hover,
+  button:focus {
+    color: var(--clr-accent);
+    border: 1px solid var(--clr-accent);
+  }
+
+  .price {
+    color: #0c0c0e;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2em; /* 100% */
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .buy {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 2em;
+
+    margin-top: 1em;
+  }
+
+  .card-date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 1em;
+
+    input {
+      width: 4.5em;
+    }
+  }
+
+  .cvc {
+    width: 4.5em;
+  }
+  .right {
+    display: flex;
+    align-self: flex-start;
+  }
+  p {
+    max-width: 33em;
+    color: #8e8e8e;
+    font-family: Inter;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2em; /* 133.333% */
+    letter-spacing: 0.2em;
+
+    margin-top: 0.5em;
+  }
 }
 
 //SHOP
@@ -1140,7 +1283,7 @@ main {
     font-family: Inter;
     font-size: 1.4rem;
     font-weight: 400;
-    line-height: 4rem; /* 200% */
+    line-height: 4em; /* 200% */
     letter-spacing: 0.1em;
     text-transform: capitalize;
   }
@@ -1159,47 +1302,6 @@ main {
     display: none;
   }
 
-  // .left-menu {
-  //   width: 45%;
-  // }
-  // ul {
-  //   list-style: none;
-
-  //   li {
-  //     color: #000;
-  //     font-family: Inter;
-  //     font-size: 1.4rem;
-
-  //     font-weight: 400;
-  //     line-height: 4rem; /* 200% */
-  //     letter-spacing: 0.2rem;
-  //     text-transform: capitalize;
-
-  //     // display: flex;
-  //     // justify-items: flex-start;
-  //     // FIX NEEDED !!!
-  //   }
-
-  //   .line {
-  //     width: 5em;
-  //     height: 0.1em;
-  //     background-color: #bb945f;
-
-  //     display: flex;
-  //     align-self: center;
-  //   }
-
-  //   .price-menu {
-  //     color: #000;
-  //     font-family: Forum;
-  //     font-size: 1.4rem;
-  //     font-weight: 400;
-  //     line-height: 4rem; /* 200% */
-  //     letter-spacing: 0.2rem;
-  //     text-transform: capitalize;
-  //   }
-  // }
-
   .all-menu {
     display: flex;
     align-content: center;
@@ -1207,13 +1309,6 @@ main {
 
     flex-wrap: wrap;
   }
-
-  // .position-2 {
-  //   display: flex;
-  //   align-content: center;
-  //   justify-content: flex-end;
-  //   gap: 1em;
-  // }
 
   /* Reset default list styles */
   .left-menu,
@@ -1269,22 +1364,6 @@ main {
     letter-spacing: 0.2rem;
     text-transform: capitalize;
   }
-  // /* Style for the prices */
-  // .price-menu {
-  //   display: flex;
-  //   align-items: center;
-  // }
-
-  // .currency {
-  //   width: 20px; /* Adjust the width of the currency area */
-  //   text-align: right;
-  //   margin-right: 5px; /* Adjust as needed for spacing */
-  // }
-
-  // .price {
-  //   flex-grow: 1;
-  //   text-align: left;
-  // }
 }
 
 #contacts {

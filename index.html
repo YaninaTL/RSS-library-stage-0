@@ -353,14 +353,6 @@
       <section id="favorites" class="section">
         <div class="title">
           <h2>Favorites</h2>
-          <div class="modal-container" id="buying-popup">
-            <iframe
-              id="buying-popup-iframe"
-              src="./buying/buy.html"
-              frameborder="0"
-              scrolling="no"
-            ></iframe>
-          </div>
         </div>
         <h4>Pick favorites of season</h4>
         <!-- cards -->
@@ -615,10 +607,11 @@
         </div>
         <!-- end -->
         <!-- Modal -->
-        <div class="wrapper" id="buy-popup">
+        <div class="wrapper-position">
+        <div class="modal-buy-wrapper" id="buy-popup">
       <div class="modal-header">
         <h1>Buy a library card</h1>
-        <button id="close-popup">
+        <button id="close-buy-popup">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="19"
@@ -636,14 +629,16 @@
           <form action="" method="post">
             <div class="txt-field">
               <label for="number">Bank card number</label>
-              <input type="number" name="number" id="number" required />
+              <input type="text" name="number" id="card-number" required />
+              <span id="card-number-error" class="error-message"></span>
             </div>
             <div class="txt-field">
               <label for="month">Expiration date</label>
               <div class="card-date">
-                <input type="number" name="date" id="month" required />
-                <input type="number" name="date" id="year" required />
+                <input type="number" name="date" id="month" placeholder="MM" maxlength="2" required />
+                <input type="number" name="date" id="year" placeholder="YY" maxlength="2" required />
               </div>
+              <span id="expiration-error" class="error-message"></span>
             </div>
             <div class="txt-field">
               <label for="CVC">CVC</label>
@@ -677,7 +672,9 @@
         </div>
      </div>
     </div>
+    </div>
       </section>
+
       <!-- Coffee shop -->
       <section id="coffee" class="section">
         <div class="title">
