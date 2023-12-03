@@ -628,7 +628,7 @@
         <div class="left">
           <form action="" method="post">
             <div class="txt-field">
-              <label for="number">Bank card number</label>
+              <label for="number">Credit card number</label>
               <input type="text" name="number" id="card-number" required />
               <span id="card-number-error" class="error-message"></span>
             </div>
@@ -636,7 +636,7 @@
               <label for="month">Expiration date</label>
               <div class="card-date">
                 <input type="number" name="date" id="month" placeholder="MM" required maxlength="2"/>
-                <input type="number" name="date" id="year" placeholder="YY" maxlength="2" required />
+                <input type="number" name="date" id="year" placeholder="YY" maxlength="2" required pattern="[2-9]*" inputmode="numeric"/>
               </div>
               <span id="expiration-error" class="error-message"></span>
             </div>

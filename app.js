@@ -502,50 +502,145 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //validation of the form
-document.addEventListener("DOMContentLoaded", function () {
-  const numberInput = document.getElementById("card-number");
-  const numberError = document.getElementById("card-number-error");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const numberInput = document.getElementById("card-number");
+//   const numberError = document.getElementById("card-number-error");
 
-  numberInput.addEventListener("input", function () {
-    const inputValue = parseFloat(numberInput.value);
-    if (isNaN(inputValue) || inputValue <= 0) {
-      numberError.textContent = "Please enter a valid card number.";
-      numberInput.classList.add("error");
+//   numberInput.addEventListener("input", function () {
+//     const inputValue = parseFloat(numberInput.value);
+//     if (isNaN(inputValue) || inputValue <= 0) {
+//       numberError.textContent = "Please enter a valid card number.";
+//       numberInput.classList.add("error");
+//     } else {
+//       numberError.textContent = "";
+//       numberInput.classList.remove("error");
+//     }
+//   });
+// });
+document
+  .getElementById("card-number")
+  .addEventListener("input", function (event) {
+    const input = event.target.value;
+    const sanitizedInput = input.replace(/\D/g, ""); // Remove non-numeric characters
+    const cardNumberRegex =
+      /^(?:[0-9]{0,4}|\s)(?:[0-9]{0,4}|\s)(?:[0-9]{0,4}|\s)(?:[0-9]{0,4})$/;
+
+    if (cardNumberRegex.test(sanitizedInput)) {
+      event.target.value = sanitizedInput;
     } else {
-      numberError.textContent = "";
-      numberInput.classList.remove("error");
+      // Display an error message or handle validation feedback as needed
+      // For instance:
+      // alert('Please enter a valid credit card number.');
+    }
+  });
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const monthInput = document.getElementById("month");
+//   const yearInput = document.getElementById("year");
+//   const expirationError = document.getElementById("expiration-error");
+
+//   monthInput.addEventListener("input", function () {
+//     const monthValue = parseInt(monthInput.value);
+//     if (isNaN(monthValue) || monthValue <= 0 || monthValue > 12) {
+//       expirationError.textContent = "Please enter a valid month (1-12).";
+//       monthInput.classList.add("error");
+//     } else {
+//       expirationError.textContent = "";
+//       monthInput.classList.remove("error");
+//     }
+//   });
+
+//   yearInput.addEventListener("input", function () {
+//     const yearValue = parseInt(yearInput.value);
+//     const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
+//     if (
+//       isNaN(yearValue) ||
+//       yearValue < currentYear ||
+//       yearValue > currentYear + 20
+//     ) {
+//       expirationError.textContent = "Please enter a valid year.";
+//       yearInput.classList.add("error");
+//     } else {
+//       expirationError.textContent = "";
+//       yearInput.classList.remove("error");
+//     }
+//   });
+// });
+
+//FINE
+document.getElementById("month").addEventListener("input", function (event) {
+  const input = event.target.value;
+  const sanitizedInput = input.replace(/\D/g, ""); // Remove non-numeric characters
+  const isValidMonth = sanitizedInput >= 1 && sanitizedInput <= 12;
+
+  if (isValidMonth) {
+    event.target.value = sanitizedInput;
+  } else {
+    event.target.value = "";
+    // Display an error message or handle validation feedback for invalid month format
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const yearInput = document.getElementById("year");
+  const expirationError = document.getElementById("expiration-error");
+
+  yearInput.addEventListener("input", function () {
+    const yearValue = yearInput.value;
+    const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
+
+    if (!/^\d{2}$/.test(yearValue)) {
+      expirationError.textContent = "Please enter a valid year.";
+      yearInput.classList.add("error");
+    } else {
+      const numericYear = parseInt(yearValue);
+      if (numericYear < currentYear || numericYear > currentYear + 10) {
+        expirationError.textContent =
+          "Please enter a valid year within the next 10 years.";
+        yearInput.classList.add("error");
+      } else {
+        expirationError.textContent = "";
+        yearInput.classList.remove("error");
+      }
     }
   });
 });
 
+// test
 document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
   const monthInput = document.getElementById("month");
   const yearInput = document.getElementById("year");
   const expirationError = document.getElementById("expiration-error");
 
-  monthInput.addEventListener("input", function () {
+  form.addEventListener("submit", function (event) {
     const monthValue = parseInt(monthInput.value);
-    if (isNaN(monthValue) || monthValue <= 0 || monthValue > 12) {
-      expirationError.textContent = "Please enter a valid month (1-12).";
-      monthInput.classList.add("error");
+    const yearValue = yearInput.value;
+    const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
+
+    if (
+      isNaN(monthValue) ||
+      monthValue <= 0 ||
+      monthValue > 12 ||
+      !/^\d{2}$/.test(yearValue) ||
+      parseInt(yearValue) < currentYear ||
+      parseInt(yearValue) > currentYear + 20
+    ) {
+      event.preventDefault(); // Prevent form submission
+      expirationError.textContent = "Please enter valid date information.";
+      if (isNaN(monthValue) || monthValue <= 0 || monthValue > 12) {
+        monthInput.classList.add("error");
+      }
+      if (
+        !/^\d{2}$/.test(yearValue) ||
+        parseInt(yearValue) < currentYear ||
+        parseInt(yearValue) > currentYear + 20
+      ) {
+        yearInput.classList.add("error");
+      }
     } else {
       expirationError.textContent = "";
       monthInput.classList.remove("error");
-    }
-  });
-
-  yearInput.addEventListener("input", function () {
-    const yearValue = parseInt(yearInput.value);
-    const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
-    if (
-      isNaN(yearValue) ||
-      yearValue < currentYear ||
-      yearValue > currentYear + 20
-    ) {
-      expirationError.textContent = "Please enter a valid year.";
-      yearInput.classList.add("error");
-    } else {
-      expirationError.textContent = "";
       yearInput.classList.remove("error");
     }
   });
