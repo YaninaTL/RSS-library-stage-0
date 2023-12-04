@@ -607,44 +607,44 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // test
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form");
-  const monthInput = document.getElementById("month");
-  const yearInput = document.getElementById("year");
-  const expirationError = document.getElementById("expiration-error");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const form = document.querySelector("form");
+//   const monthInput = document.getElementById("month");
+//   const yearInput = document.getElementById("year");
+//   const expirationError = document.getElementById("expiration-error");
 
-  form.addEventListener("submit", function (event) {
-    const monthValue = parseInt(monthInput.value);
-    const yearValue = yearInput.value;
-    const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
+//   form.addEventListener("submit", function (event) {
+//     const monthValue = parseInt(monthInput.value);
+//     const yearValue = yearInput.value;
+//     const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
 
-    if (
-      isNaN(monthValue) ||
-      monthValue <= 0 ||
-      monthValue > 12 ||
-      !/^\d{2}$/.test(yearValue) ||
-      parseInt(yearValue) < currentYear ||
-      parseInt(yearValue) > currentYear + 20
-    ) {
-      event.preventDefault(); // Prevent form submission
-      expirationError.textContent = "Please enter valid date information.";
-      if (isNaN(monthValue) || monthValue <= 0 || monthValue > 12) {
-        monthInput.classList.add("error");
-      }
-      if (
-        !/^\d{2}$/.test(yearValue) ||
-        parseInt(yearValue) < currentYear ||
-        parseInt(yearValue) > currentYear + 20
-      ) {
-        yearInput.classList.add("error");
-      }
-    } else {
-      expirationError.textContent = "";
-      monthInput.classList.remove("error");
-      yearInput.classList.remove("error");
-    }
-  });
-});
+//     if (
+//       isNaN(monthValue) ||
+//       monthValue <= 0 ||
+//       monthValue > 12 ||
+//       !/^\d{2}$/.test(yearValue) ||
+//       parseInt(yearValue) < currentYear ||
+//       parseInt(yearValue) > currentYear + 20
+//     ) {
+//       event.preventDefault(); // Prevent form submission
+//       expirationError.textContent = "Please enter valid date information.";
+//       if (isNaN(monthValue) || monthValue <= 0 || monthValue > 12) {
+//         monthInput.classList.add("error");
+//       }
+//       if (
+//         !/^\d{2}$/.test(yearValue) ||
+//         parseInt(yearValue) < currentYear ||
+//         parseInt(yearValue) > currentYear + 20
+//       ) {
+//         yearInput.classList.add("error");
+//       }
+//     } else {
+//       expirationError.textContent = "";
+//       monthInput.classList.remove("error");
+//       yearInput.classList.remove("error");
+//     }
+//   });
+// });
 
 document.addEventListener("DOMContentLoaded", function () {
   const cvcInput = document.getElementById("CVC");
@@ -662,3 +662,113 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// document.addEventListener("DOMContentLoaded", function () {
+const cardholderInput = document.getElementById("cardholder");
+const postInput = document.getElementById("post");
+const cityInput = document.getElementById("city");
+
+const cardholderError = document.getElementById("cardholder-error");
+const postError = document.getElementById("post-error");
+const cityError = document.getElementById("city-error");
+
+cardholderInput.addEventListener("input", function () {
+  const cardholderValue = cardholderInput.value.trim();
+  const validCardholder = /^[A-Za-z]+$/.test(cardholderValue);
+  if (!validCardholder) {
+    cardholderError.textContent = "Please enter a valid cardholder name.";
+    cardholderInput.classList.add("error");
+  } else {
+    cardholderError.textContent = "";
+    cardholderInput.classList.remove("error");
+  }
+});
+
+postInput.addEventListener("input", function () {
+  const postValue = postInput.value;
+  if (postValue.trim().length === 0) {
+    postError.textContent = "Postal code cannot be empty.";
+    postInput.classList.add("error");
+  } else {
+    postError.textContent = "";
+    postInput.classList.remove("error");
+  }
+});
+
+cityInput.addEventListener("input", function () {
+  const cityValue = cityInput.value.trim();
+  if (cityValue.length === 0) {
+    cityError.textContent = "City / Town cannot be empty.";
+    cityInput.classList.add("error");
+  } else {
+    cityError.textContent = "";
+    cityInput.classList.remove("error");
+  }
+});
+
+// deal with all the inputs
+
+//reg validation
+document
+  .getElementById("reg-form")
+  .addEventListener("submit", function (event) {
+    let isValid = true;
+
+    // Validation for first name
+    const firstName = document.getElementById("first-name");
+    const firstNameError = document.getElementById("first-name-error");
+    if (firstName.value.trim() === "") {
+      firstNameError.textContent = "Please enter your first name";
+      isValid = false;
+    } else if (!/^[A-Z][a-z]*$/.test(firstName.value.trim())) {
+      firstNameError.textContent =
+        "First name must start with a capital letter";
+      isValid = false;
+    } else {
+      firstNameError.textContent = "";
+    }
+
+    // Validation for last name
+    const lastName = document.getElementById("last-name");
+    const lastNameError = document.getElementById("last-name-error");
+    if (lastName.value.trim() === "") {
+      lastNameError.textContent = "Please enter your last name";
+      isValid = false;
+    } else if (!/^[A-Z][a-z]*$/.test(lastName.value.trim())) {
+      lastNameError.textContent = "Last name must start with a capital letter";
+      isValid = false;
+    } else {
+      lastNameError.textContent = "";
+    }
+
+    // Validation for email
+    const email = document.getElementById("email");
+    const emailError = document.getElementById("email-error");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex pattern
+    if (!emailRegex.test(email.value.trim())) {
+      emailError.textContent = "Please enter a valid email address";
+      isValid = false;
+    } else {
+      emailError.textContent = "";
+    }
+
+    // Validation for password
+    const password = document.getElementById("password");
+    const passwordError = document.getElementById("password-error");
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/;
+    if (
+      password.value.trim().length < 8 ||
+      !passwordRegex.test(password.value.trim())
+    ) {
+      passwordError.textContent =
+        "Password must be at least 8 characters and contain at least one lowercase letter, one uppercase letter, one digit, and one special character";
+      isValid = false;
+    } else {
+      passwordError.textContent = "";
+    }
+
+    if (!isValid) {
+      event.preventDefault(); // Prevent form submission if not valid
+    }
+  });

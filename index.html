@@ -116,23 +116,27 @@
               <path d="M2 2.14928L17 17" stroke="#0C0C0E" stroke-width="3" />
             </svg>
           </button>
-          <h1>Register</h1>
-          <form action="" method="post">
-            <div class="txt-field">
+          <form action="/" method="post" id="reg-form">
+            <h1>Register</h1>
+            <div class="txt-field input-control">
               <input type="text" name="first-name" id="first-name" required />
               <label for="first-name">First name</label>
+              <div class="reg-error" id="first-name-error"></div>
             </div>
-            <div class="txt-field">
+            <div class="txt-field input-control">
               <input type="text" name="last-name" id="last-name" required />
               <label for="last-name">Last name</label>
+              <div class="reg-error" id="last-name-error"></div>
             </div>
-            <div class="txt-field">
+            <div class="txt-field input-control">
               <input type="email" name="email" id="email" required />
               <label for="email">E-mail</label>
+              <div class="reg-error" id="email-error"></div>
             </div>
-            <div class="txt-field">
+            <div class="txt-field input-control">
               <input type="password" name="password" id="password" required />
               <label for="password">Password</label>
+              <div class="reg-error" id="password-error"></div>
             </div>
             <input type="submit" value="Sign Up" />
             <div class="signup-link">
@@ -635,7 +639,7 @@
             <div class="txt-field">
               <label for="month">Expiration date</label>
               <div class="card-date">
-                <input type="number" name="date" id="month" placeholder="MM" required maxlength="2"/>
+                <input type="number" name="date" id="month" placeholder="MM" required maxlength="2" pattern="[1-9]*" inputmode="numeric"/>
                 <input type="number" name="date" id="year" placeholder="YY" maxlength="2" required pattern="[2-9]*" inputmode="numeric"/>
               </div>
               <span id="expiration-error" class="error-message"></span>
@@ -647,7 +651,7 @@
 
             <div class="txt-field">
               <label for="cardholder">Cardholder name</label>
-              <input type="text" name="cardholder" id="cardholder" required />
+              <input type="text" name="cardholder" id="cardholder" required pattern="[A-Za-z ]+" />
             </div>
             <div class="txt-field">
               <label for="post">Postal code</label>
