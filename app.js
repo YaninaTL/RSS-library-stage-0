@@ -525,6 +525,7 @@ document
     }
   });
 
+//moth
 document.getElementById("month").addEventListener("input", function (event) {
   const input = event.target.value;
   const sanitizedInput = input.replace(/\D/g, ""); // Remove non-numeric characters
@@ -538,6 +539,7 @@ document.getElementById("month").addEventListener("input", function (event) {
   }
 });
 
+//year
 document.addEventListener("DOMContentLoaded", function () {
   const yearInput = document.getElementById("year");
   const expirationError = document.getElementById("expiration-error");
@@ -563,6 +565,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+//CVC
 document.addEventListener("DOMContentLoaded", function () {
   const cvcInput = document.getElementById("CVC");
   const cvcError = document.getElementById("cvc-error");
@@ -578,6 +581,24 @@ document.addEventListener("DOMContentLoaded", function () {
       cvcInput.classList.remove("error");
     }
   });
+});
+
+//cardholder
+const cardholderInput = document.getElementById("cardholder");
+const cardholderError = document.getElementById("cardholder-error");
+
+cardholderInput.addEventListener("input", function (event) {
+  const inputValue = event.target.value;
+  const formattedValue = inputValue
+    .replace(/\s+/g, " ") // Replace multiple spaces with a single space
+    .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize each word
+
+  if (/[^A-Za-z\s]/.test(inputValue)) {
+    cardholderError.textContent = "Please enter a valid cardholder name.";
+  } else {
+    event.target.value = formattedValue;
+    cardholderError.textContent = "";
+  }
 });
 
 //reg validation
