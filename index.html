@@ -640,7 +640,7 @@
               <label for="month">Expiration date</label>
               <div class="card-date">
                 <input type="number" name="date" id="month" placeholder="MM" required maxlength="2" pattern="[1-9]*" inputmode="numeric"/>
-                <input type="number" name="date" id="year" placeholder="YY" maxlength="2" required pattern="[2-9]*" inputmode="numeric"/>
+                <input type="number" name="date" id="year" placeholder="YY" maxlength="2" required pattern="[2-9]*" min="2" inputmode="numeric"/>
               </div>
               <span id="expiration-error" class="error-message"></span>
             </div>
@@ -657,12 +657,12 @@
             </div>
             <div class="txt-field">
               <label for="post">Postal code</label>
-              <input type="number" name="post" id="post" required />
+              <input type="number" name="post" id="post" required pattern="[0-9]*" min="0" inputmode="numeric"/>
               <span id="post-error" class="error-message"></span>
             </div>
             <div class="txt-field">
               <label for="city">City / Town</label>
-              <input type="text" name="city" id="city" required />
+              <input type="text" name="city" id="city" required pattern="[A-Za-z ]+"/>
               <span id="city-error" class="error-message"></span>
             </div>
             <div class="buy">

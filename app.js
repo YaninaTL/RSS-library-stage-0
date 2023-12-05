@@ -601,6 +601,36 @@ cardholderInput.addEventListener("input", function (event) {
   }
 });
 
+//post code
+document.getElementById("post").addEventListener("input", function (event) {
+  const postInput = event.target;
+  const inputValue = postInput.value;
+
+  if (inputValue.length < 5) {
+    postInput.setCustomValidity("Please enter a valid postal code.");
+  } else {
+    postInput.setCustomValidity("");
+  }
+});
+
+//city
+const cityInput = document.getElementById("city");
+const cityError = document.getElementById("city-error");
+
+cityInput.addEventListener("input", function (event) {
+  const inputValue = event.target.value;
+  const formattedValue = inputValue
+    .replace(/\s+/g, " ") // Replace multiple spaces with a single space
+    .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize each word
+
+  if (/[^A-Za-z\s]/.test(inputValue)) {
+    cityError.textContent = "Please enter a valid city/town name.";
+  } else {
+    event.target.value = formattedValue;
+    cityError.textContent = "";
+  }
+});
+
 //reg validation
 document
   .getElementById("reg-form")
