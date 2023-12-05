@@ -633,7 +633,7 @@
           <form action="" method="post">
             <div class="txt-field">
               <label for="number">Credit card number</label>
-              <input type="text" name="number" id="card-number" required />
+              <input type="text" name="number" id="card-number" required  pattern="[0-9]*" inputmode="numeric" />
               <span id="card-number-error" class="error-message"></span>
             </div>
             <div class="txt-field">
@@ -647,19 +647,23 @@
 <div class="txt-field">
     <label for="CVC">CVC</label>
     <input type="text" name="CVC" id="CVC" class="cvc" required pattern="[0-9]*" inputmode="numeric" maxlength="4" />
+    <span id="cvc-error" class="error-message"></span>
 </div>
 
             <div class="txt-field">
               <label for="cardholder">Cardholder name</label>
               <input type="text" name="cardholder" id="cardholder" required pattern="[A-Za-z ]+" />
+              <span id="cardholder-error" class="error-message"></span>
             </div>
             <div class="txt-field">
               <label for="post">Postal code</label>
               <input type="number" name="post" id="post" required />
+              <span id="post-error" class="error-message"></span>
             </div>
             <div class="txt-field">
               <label for="city">City / Town</label>
               <input type="text" name="city" id="city" required />
+              <span id="city-error" class="error-message"></span>
             </div>
             <div class="buy">
               <button>Buy</button>

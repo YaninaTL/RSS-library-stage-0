@@ -502,72 +502,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //validation of the form
-// document.addEventListener("DOMContentLoaded", function () {
-//   const numberInput = document.getElementById("card-number");
-//   const numberError = document.getElementById("card-number-error");
-
-//   numberInput.addEventListener("input", function () {
-//     const inputValue = parseFloat(numberInput.value);
-//     if (isNaN(inputValue) || inputValue <= 0) {
-//       numberError.textContent = "Please enter a valid card number.";
-//       numberInput.classList.add("error");
-//     } else {
-//       numberError.textContent = "";
-//       numberInput.classList.remove("error");
-//     }
-//   });
-// });
+//card number
 document
   .getElementById("card-number")
   .addEventListener("input", function (event) {
     const input = event.target.value;
     const sanitizedInput = input.replace(/\D/g, ""); // Remove non-numeric characters
-    const cardNumberRegex =
-      /^(?:[0-9]{0,4}|\s)(?:[0-9]{0,4}|\s)(?:[0-9]{0,4}|\s)(?:[0-9]{0,4})$/;
 
-    if (cardNumberRegex.test(sanitizedInput)) {
-      event.target.value = sanitizedInput;
+    const formattedInput = sanitizedInput.replace(/(\d{4})/g, "$1 ").trim(); // Format input with spaces every 4 digits
+
+    event.target.value = formattedInput; // Update input field with formatted value
+
+    const cardNumberRegex = /^(?:\d{4}\s?){4}$/; // Adjust regex pattern for a 16-digit credit card number with spaces
+
+    const errorElement = document.getElementById("card-number-error");
+
+    if (cardNumberRegex.test(formattedInput)) {
+      errorElement.textContent = "";
     } else {
-      // Display an error message or handle validation feedback as needed
-      // For instance:
-      // alert('Please enter a valid credit card number.');
+      errorElement.textContent =
+        "Please enter a valid 16-digit credit card number.";
     }
   });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const monthInput = document.getElementById("month");
-//   const yearInput = document.getElementById("year");
-//   const expirationError = document.getElementById("expiration-error");
-
-//   monthInput.addEventListener("input", function () {
-//     const monthValue = parseInt(monthInput.value);
-//     if (isNaN(monthValue) || monthValue <= 0 || monthValue > 12) {
-//       expirationError.textContent = "Please enter a valid month (1-12).";
-//       monthInput.classList.add("error");
-//     } else {
-//       expirationError.textContent = "";
-//       monthInput.classList.remove("error");
-//     }
-//   });
-
-//   yearInput.addEventListener("input", function () {
-//     const yearValue = parseInt(yearInput.value);
-//     const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
-//     if (
-//       isNaN(yearValue) ||
-//       yearValue < currentYear ||
-//       yearValue > currentYear + 20
-//     ) {
-//       expirationError.textContent = "Please enter a valid year.";
-//       yearInput.classList.add("error");
-//     } else {
-//       expirationError.textContent = "";
-//       yearInput.classList.remove("error");
-//     }
-//   });
-// });
-
-//FINE
 document.getElementById("month").addEventListener("input", function (event) {
   const input = event.target.value;
   const sanitizedInput = input.replace(/\D/g, ""); // Remove non-numeric characters
@@ -606,46 +563,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// test
-// document.addEventListener("DOMContentLoaded", function () {
-//   const form = document.querySelector("form");
-//   const monthInput = document.getElementById("month");
-//   const yearInput = document.getElementById("year");
-//   const expirationError = document.getElementById("expiration-error");
-
-//   form.addEventListener("submit", function (event) {
-//     const monthValue = parseInt(monthInput.value);
-//     const yearValue = yearInput.value;
-//     const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
-
-//     if (
-//       isNaN(monthValue) ||
-//       monthValue <= 0 ||
-//       monthValue > 12 ||
-//       !/^\d{2}$/.test(yearValue) ||
-//       parseInt(yearValue) < currentYear ||
-//       parseInt(yearValue) > currentYear + 20
-//     ) {
-//       event.preventDefault(); // Prevent form submission
-//       expirationError.textContent = "Please enter valid date information.";
-//       if (isNaN(monthValue) || monthValue <= 0 || monthValue > 12) {
-//         monthInput.classList.add("error");
-//       }
-//       if (
-//         !/^\d{2}$/.test(yearValue) ||
-//         parseInt(yearValue) < currentYear ||
-//         parseInt(yearValue) > currentYear + 20
-//       ) {
-//         yearInput.classList.add("error");
-//       }
-//     } else {
-//       expirationError.textContent = "";
-//       monthInput.classList.remove("error");
-//       yearInput.classList.remove("error");
-//     }
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
   const cvcInput = document.getElementById("CVC");
   const cvcError = document.getElementById("cvc-error");
@@ -662,51 +579,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-// document.addEventListener("DOMContentLoaded", function () {
-const cardholderInput = document.getElementById("cardholder");
-const postInput = document.getElementById("post");
-const cityInput = document.getElementById("city");
-
-const cardholderError = document.getElementById("cardholder-error");
-const postError = document.getElementById("post-error");
-const cityError = document.getElementById("city-error");
-
-cardholderInput.addEventListener("input", function () {
-  const cardholderValue = cardholderInput.value.trim();
-  const validCardholder = /^[A-Za-z]+$/.test(cardholderValue);
-  if (!validCardholder) {
-    cardholderError.textContent = "Please enter a valid cardholder name.";
-    cardholderInput.classList.add("error");
-  } else {
-    cardholderError.textContent = "";
-    cardholderInput.classList.remove("error");
-  }
-});
-
-postInput.addEventListener("input", function () {
-  const postValue = postInput.value;
-  if (postValue.trim().length === 0) {
-    postError.textContent = "Postal code cannot be empty.";
-    postInput.classList.add("error");
-  } else {
-    postError.textContent = "";
-    postInput.classList.remove("error");
-  }
-});
-
-cityInput.addEventListener("input", function () {
-  const cityValue = cityInput.value.trim();
-  if (cityValue.length === 0) {
-    cityError.textContent = "City / Town cannot be empty.";
-    cityInput.classList.add("error");
-  } else {
-    cityError.textContent = "";
-    cityInput.classList.remove("error");
-  }
-});
-
-// deal with all the inputs
 
 //reg validation
 document
