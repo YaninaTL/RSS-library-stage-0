@@ -509,15 +509,11 @@ document
     const input = event.target.value;
     const sanitizedInput = input.replace(/\D/g, ""); // Remove non-numeric characters
 
-    const formattedInput = sanitizedInput.replace(/(\d{4})/g, "$1 ").trim(); // Format input with spaces every 4 digits
-
-    event.target.value = formattedInput; // Update input field with formatted value
-
-    const cardNumberRegex = /^(?:\d{4}\s?){4}$/; // Adjust regex pattern for a 16-digit credit card number with spaces
+    const cardNumberRegex = /^(\d{4}\s?){4}$/; // Pattern for a 16-digit credit card number with optional spaces
 
     const errorElement = document.getElementById("card-number-error");
 
-    if (cardNumberRegex.test(formattedInput)) {
+    if (cardNumberRegex.test(sanitizedInput)) {
       errorElement.textContent = "";
     } else {
       errorElement.textContent =
@@ -628,6 +624,18 @@ cityInput.addEventListener("input", function (event) {
   } else {
     event.target.value = formattedValue;
     cityError.textContent = "";
+  }
+});
+
+//submission
+document.querySelector("form").addEventListener("submit", function (event) {
+  const errorMessages = document.querySelectorAll(".error-message");
+
+  for (const errorMessage of errorMessages) {
+    if (errorMessage.textContent.trim() !== "") {
+      event.preventDefault();
+      return;
+    }
   }
 });
 
