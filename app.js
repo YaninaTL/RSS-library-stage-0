@@ -503,17 +503,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //validation of the form
 //card number
+
 document
   .getElementById("card-number")
   .addEventListener("input", function (event) {
     const input = event.target.value;
     const sanitizedInput = input.replace(/\D/g, ""); // Remove non-numeric characters
+    const formattedInput = sanitizedInput.replace(/(\d{4})/g, "$1 ").trim(); // Format input with spaces every 4 digits
 
-    const cardNumberRegex = /^(\d{4}\s?){4}$/; // Pattern for a 16-digit credit card number with optional spaces
+    event.target.value = formattedInput; // Update input field with formatted value
 
+    const cardNumberRegex = /^(?:\d{4}\s?){4}$/; // Adjust regex pattern for a 16-digit credit card number with spaces
     const errorElement = document.getElementById("card-number-error");
 
-    if (cardNumberRegex.test(sanitizedInput)) {
+    if (cardNumberRegex.test(formattedInput)) {
       errorElement.textContent = "";
     } else {
       errorElement.textContent =
