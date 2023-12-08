@@ -640,7 +640,7 @@
               <label for="month">Expiration date</label>
               <div class="card-date">
                 <input type="number" name="date" id="month" placeholder="MM" required maxlength="2" pattern="[1-9]*" inputmode="numeric"/>
-                <input type="number" name="date" id="year" placeholder="YY" maxlength="2" required pattern="[2-9]*" min="2" inputmode="numeric"/>
+                <input type="number" name="date" id="year" placeholder="YY"  required maxlength="2" min="2" pattern="[2-9][0-9]"  inputmode="numeric"/>
               </div>
               <span id="expiration-error" class="error-message"></span>
             </div>

@@ -503,7 +503,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //validation of the form
 //card number
-
 document
   .getElementById("card-number")
   .addEventListener("input", function (event) {
@@ -539,6 +538,30 @@ document.getElementById("month").addEventListener("input", function (event) {
 });
 
 //year
+// document.addEventListener("DOMContentLoaded", function () {
+//   const yearInput = document.getElementById("year");
+//   const expirationError = document.getElementById("expiration-error");
+
+//   yearInput.addEventListener("input", function () {
+//     const yearValue = yearInput.value;
+//     const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
+
+//     if (!/^\d{2}$/.test(yearValue)) {
+//       expirationError.textContent = "Please enter a valid year.";
+//       yearInput.classList.add("error");
+//     } else {
+//       const numericYear = parseInt(yearValue);
+//       if (numericYear < currentYear || numericYear > currentYear + 10) {
+//         expirationError.textContent =
+//           "Please enter a valid year within the next 10 years.";
+//         yearInput.classList.add("error");
+//       } else {
+//         expirationError.textContent = "";
+//         yearInput.classList.remove("error");
+//       }
+//     }
+//   });
+// });
 document.addEventListener("DOMContentLoaded", function () {
   const yearInput = document.getElementById("year");
   const expirationError = document.getElementById("expiration-error");
@@ -547,11 +570,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const yearValue = yearInput.value;
     const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
 
-    if (!/^\d{2}$/.test(yearValue)) {
-      expirationError.textContent = "Please enter a valid year.";
+    if (yearValue.length > 2) {
+      // If input length exceeds 2, truncate the input value
+      yearInput.value = yearValue.slice(0, 2);
+    }
+
+    const truncatedYearValue = yearInput.value;
+
+    if (
+      truncatedYearValue.length !== 2 ||
+      !/^\d{2}$/.test(truncatedYearValue)
+    ) {
+      expirationError.textContent = "Please enter a valid 2-digit year.";
       yearInput.classList.add("error");
     } else {
-      const numericYear = parseInt(yearValue);
+      const numericYear = parseInt(truncatedYearValue);
       if (numericYear < currentYear || numericYear > currentYear + 10) {
         expirationError.textContent =
           "Please enter a valid year within the next 10 years.";
@@ -631,15 +664,25 @@ cityInput.addEventListener("input", function (event) {
 });
 
 //submission
-document.querySelector("form").addEventListener("submit", function (event) {
-  const errorMessages = document.querySelectorAll(".error-message");
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
 
-  for (const errorMessage of errorMessages) {
-    if (errorMessage.textContent.trim() !== "") {
-      event.preventDefault();
-      return;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const errorMessages = document.querySelectorAll(".error-message");
+
+    for (const errorMessage of errorMessages) {
+      if (errorMessage.textContent.trim() !== "") {
+        // If there are error messages, prevent form submission
+        return;
+      }
     }
-  }
+
+    // If no error messages, proceed with form submission
+    // Here you can add further logic if submission is valid
+    form.submit(); // Submit the form
+  });
 });
 
 //reg validation
