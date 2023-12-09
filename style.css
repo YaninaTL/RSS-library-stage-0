@@ -1214,6 +1214,14 @@ main {
   z-index: 999 !important;
 }
 
+@media (max-width: 800px) {
+  .container-contacts {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+  }
+}
 #cards .wrapper-libcard {
   display: flex;
   justify-content: space-between;
@@ -1222,7 +1230,7 @@ main {
 }
 #cards .wrapper-libcard .left-col-card {
   width: 60em;
-  height: 38em;
+  margin-bottom: 2em;
 }
 #cards .wrapper-libcard .left-col-card h3 {
   color: #000;
@@ -1290,9 +1298,6 @@ main {
 #cards .wrapper-libcard .left-col-card form .action-btn {
   text-align: center;
 }
-#cards .wrapper-libcard .right-col-card {
-  height: 38em;
-}
 #cards .wrapper-libcard .right-col-card h3 {
   color: #000;
   text-align: right;
@@ -1333,6 +1338,28 @@ main {
   background-color: #bb945f;
 }
 
+@media (max-width: 800px) {
+  #cards .wrapper-libcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #cards .left-col-card,
+  #cards .right-col-card {
+    width: auto; /* Adjust width as needed */
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  #cards .right-col-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #cards .right-col-card p {
+    text-align: center;
+  }
+}
 footer {
   background: #0c0c0e;
   padding: 2em;
