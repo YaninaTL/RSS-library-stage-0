@@ -1287,7 +1287,7 @@ main {
     font-family: Inter;
     font-size: 1.4rem;
     font-weight: 400;
-    line-height: 4em; /* 200% */
+    line-height: 2em; /* 200% */
     letter-spacing: 0.1em;
     text-transform: capitalize;
   }
@@ -1452,7 +1452,7 @@ main {
         letter-spacing: 0.06rem;
 
         text-align: center;
-        margin-bottom: 1.5em;
+        margin-bottom: 1em;
       }
 
       form {
@@ -1564,6 +1564,45 @@ main {
       }
     }
   }
+}
+// modal card
+.modal-card {
+  display: none;
+}
+.modal-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+
+  margin: 1em 0;
+
+  .first-card,
+  .second-card,
+  .third-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1em;
+  }
+
+  .number {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+    letter-spacing: 0.02rem;
+    text-transform: capitalize;
+  }
+}
+#cards .wrapper-libcard .left-col-card .stats-title {
+  margin-bottom: 0;
 }
 
 @media (max-width: 800px) {

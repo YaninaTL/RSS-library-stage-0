@@ -1108,7 +1108,7 @@ main {
   font-family: Inter;
   font-size: 1.4rem;
   font-weight: 400;
-  line-height: 4em; /* 200% */
+  line-height: 2em; /* 200% */
   letter-spacing: 0.1em;
   text-transform: capitalize;
 }
@@ -1239,7 +1239,7 @@ main {
   font-weight: 400;
   letter-spacing: 0.06rem;
   text-align: center;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 #cards .wrapper-libcard .left-col-card form {
   border: 2px solid var(--clr-accent);
@@ -1336,6 +1336,43 @@ main {
 }
 #cards .wrapper-libcard .right-col-card .btns button:hover {
   background-color: #bb945f;
+}
+
+.modal-card {
+  display: none;
+}
+
+.modal-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  margin: 1em 0;
+}
+.modal-stats .first-card,
+.modal-stats .second-card,
+.modal-stats .third-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.modal-stats .number {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem; /* 200% */
+  letter-spacing: 0.02rem;
+  text-transform: capitalize;
+}
+
+#cards .wrapper-libcard .left-col-card .stats-title {
+  margin-bottom: 0;
 }
 
 @media (max-width: 800px) {

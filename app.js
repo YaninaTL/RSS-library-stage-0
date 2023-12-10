@@ -749,3 +749,89 @@ document
       event.preventDefault(); // Prevent form submission if not valid
     }
   });
+
+//CARD MODAL
+document.addEventListener("DOMContentLoaded", function () {
+  const checkCardBtn = document.getElementById("checkCardBtn");
+
+  if (checkCardBtn) {
+    checkCardBtn.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      const storedFullName = "John Doe"; // Simulated stored full name
+      const storedCard = "F00234030"; // Simulated stored card number
+
+      const readerNameInput = document.getElementById("readerNameInput");
+      const cardNumberInput = document.getElementById("cardNumberInput");
+
+      if (readerNameInput && cardNumberInput) {
+        const enteredFullName = readerNameInput.value.trim();
+        const enteredCard = cardNumberInput.value.trim();
+
+        if (enteredFullName === storedFullName && enteredCard === storedCard) {
+          showCardModal(storedFullName, storedCard);
+        } else {
+          alert("Invalid name or card number. Please try again.");
+        }
+      }
+    });
+  }
+
+  function showCardModal(fullName, cardNumber) {
+    const modal = document.getElementById("modalcards");
+    modal.style.display = "block";
+
+    const modalContent = `
+      <!-- Your modal content here -->
+      <div class="title">
+        <h2>Digital Library Cards</h2>
+      </div>
+      <div class="wrapper-libcard">
+        <div class="left-col-card">
+          <h3>Your Library card</h3>
+          <form action="" method="">
+            <div class="center-form">
+              <h2>Brooklyn Public Library</h2>
+              <div class="input-frame">
+                <input type="text" required placeholder="${fullName}" />
+                <input type="text" required placeholder="${cardNumber}" />
+              </div>
+            </div>
+            <div class="modal-stats">
+              <div class="first-card">
+                <h3 class="stats-title">Visits</h3>
+                <img src="./img/Union.svg" alt="" />
+                <div class="number">23</div>
+              </div>
+              <div class="second-card">
+                <h3 class="stats-title">Bonuses</h3>
+                <img src="./img/Star.svg" alt="" />
+                <div class="number">1240</div>
+              </div>
+              <div class="third-card">
+                <h3 class="stats-title">Books</h3>
+                <img src="./img/book.svg" alt="" />
+                <div class="number">2</div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="right-col-card">
+          <h3>Visit your profile</h3>
+          <div class="frame">
+            <p>
+              With a digital library card you get free access to the Library’s
+              wide array of digital resources including e-books, databases,
+              educational resources, and more.
+            </p>
+          </div>
+          <div class="btns">
+            <button type="submit">Profile</button>
+          </div>
+        </div>
+      </div>
+    </section>`;
+
+    modal.innerHTML = modalContent;
+  }
+});

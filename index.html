@@ -690,109 +690,11 @@
           <h2>Coffee shop</h2>
         </div>
         <p>
-          In our library, we have of cozy coffee shop, welcoming in customers
-          with frothy cappuccinos and friendly conversation. you can get a
-          favorite book and read in coffee shop. Our barista to cook you best
-          coffee, and also you can try desserts from bakery.
+          In our library, we have a cozy coffee shop, welcoming customers
+          with frothy cappuccinos and friendly conversations. You can get a
+          favorite book and read it right there, meanwhile our barista is cooking the best
+          coffee.You can also try desserts from the bakery!
         </p>
-        <!-- <div class="all-menu">
-          <div class="left-menu">
-            <h2 class="title-menu">Coffee & Tea</h2>
-            <div class="list-wrapper">
-              <ul>
-                <li class="position">
-                  <span class="name-menu">
-                    Cold Brew Coffee
-                    <span class="line"></span>
-                    <span class="price-menu">$3</span>
-                  </span>
-                </li>
-                <li class="position">
-                  <span class="name-menu">
-                    French Press Pot
-                    <span class="line"></span>
-                    <span class="price-menu">$5</span>
-                  </span>
-                </li>
-                <li class="position">
-                  <span class="name-menu">
-                    Espresso
-                    <span class="line"></span>
-                    <span class="price-menu">$2</span>
-                  </span>
-                </li>
-                <li class="position">
-                  <span class="name-menu">
-                    Cappuccino
-                    <span class="line"></span>
-                    <span class="price-menu">$4</span>
-                  </span>
-                </li>
-                <li class="position">
-                  <span class="name-menu">
-                    Hot tea
-                    <span class="line"></span>
-                    <span class="price-menu">$2</span>
-                  </span>
-                </li>
-                <li class="position">
-                  <span class="name-menu">
-                    Cold tea
-                    <span class="line"></span>
-                    <span class="price-menu">$2</span>
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="right-menu">
-            <h2 class="title-menu">Desserts & Cakes</h2>
-            <ul>
-              <li>
-                <span class="position-2">
-                  <span>Forest Gateau</span>
-                  <span class="line"></span>
-                  <span class="price-menu">$16</span>
-                </span>
-              </li>
-              <li>
-                <span class="position-2">
-                  <span>Blue Moon</span>
-                  <span class="line"></span>
-                  <span class="price-menu">$16</span>
-                </span>
-              </li>
-              <li>
-                <span class="position-2">
-                  <span>Truffle Cake</span>
-                  <span class="line"></span>
-                  <span class="price-menu">$15</span>
-                </span>
-              </li>
-              <li>
-                <span class="position-2">
-                  <span>Chocolate Cake</span>
-                  <span class="line"></span>
-                  <span class="price-menu">$18</span>
-                </span>
-              </li>
-              <li>
-                <span class="position-2">
-                  <span>Poet’s Dream Cake</span>
-                  <span class="line"></span>
-                  <span class="price-menu">$16</span>
-                </span>
-              </li>
-              <li>
-                <span class="position-2">
-                  <span>Pineapple Cake</span>
-                  <span class="line"></span>
-                  <span class="price-menu">$14</span>
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div> -->
         <div class="all-menu">
           <div class="left-menu">
     <h2 class="title-menu">Coffee & Tea</h2>
@@ -925,20 +827,12 @@
             </ul>
           </div>
           <div class="right-col-cont">
-            <iframe
-              class="map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.015975743674!2d-73.9912976!3d40.6956458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b6395abd%3A0x5b6c5e44eb578313!2sBrooklyn%20Public%20Library%20-%20Brooklyn%20Heights%20Branch!5e0!3m2!1ses!2ses!4v1699909356648!5m2!1ses!2ses"
-              width="400"
-              height="300"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6050.031933325282!2d-73.991298!3d40.695646!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a49b6395abd%3A0x5b6c5e44eb578313!2sBrooklyn%20Public%20Library%20-%20Brooklyn%20Heights%20Branch!5e0!3m2!1ses!2ses!4v1702155670659!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <!-- Make sure you are using an API key that has access to the Google Maps Embed API. -->
         </div>
       </section>
+
       <!-- Digital Library Cards -->
       <section id="cards" class="section">
         <div class="title">
@@ -952,12 +846,13 @@
               <div class="center-form">
                 <h2>Brooklyn Public Library</h2>
                 <div class="input-frame">
-                  <input type="text" required placeholder="Reader's name " />
-                  <input type="text" required placeholder="Card number" />
+                  <input id="readerNameInput" type="text" required placeholder="Reader's name" style="color: #BB945F;" />
+                  <input id="cardNumberInput" type="text" required placeholder="Card number" style="color: #BB945F;" />
+                  <!-- Add usual style in css!!!! -->
                 </div>
               </div>
               <div class="action-btn">
-                <button type="submit">Check the card</button>
+                <button id="checkCardBtn" type="submit">Check the card</button>
               </div>
             </form>
           </div>
@@ -977,6 +872,59 @@
           </div>
         </div>
       </section>
+      <!-- Modal card -->
+<section id="modalcards" class="section modal-card">
+      <div class="title">
+        <h2>Digital Library Cards</h2>
+      </div>
+      <div class="wrapper-libcard">
+        <div class="left-col-card">
+          <h3>Your Library card</h3>
+          <form action="" method="">
+            <!-- in action goes the actual server-side script or endpoint that will handle card number verification -->
+            <div class="center-form">
+              <h2>Brooklyn Public Library</h2>
+              <div class="input-frame">
+                <input type="text" required placeholder="" />
+                <!-- should be the name of the user -->
+                <input type="text" required placeholder="" />
+              </div>
+            </div>
+            <div class="modal-stats">
+              <div class="first-card">
+                <h3 class="stats-title">Visits</h3>
+                <img src="./img/Union.svg" alt="" />
+                <div class="number">23</div>
+              </div>
+              <div class="second-card">
+                <h3 class="stats-title">Bonuses</h3>
+                <img src="./img/Star.svg" alt="" />
+                <div class="number">1240</div>
+              </div>
+              <div class="third-card">
+                <h3 class="stats-title">Books</h3>
+                <img src="./img/book.svg" alt="" />
+                <div class="number">2</div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="right-col-card">
+          <h3>Visit your profile</h3>
+          <div class="frame">
+            <p>
+              With a digital library card you get free access to the Library’s
+              wide array of digital resources including e-books, databases,
+              educational resources, and more.
+            </p>
+          </div>
+
+          <div class="btns">
+            <button type="submit">Profile</button>
+          </div>
+        </div>
+      </div>
+    </section>
     </main>
     <!-- footer -->
     <footer class="section">
