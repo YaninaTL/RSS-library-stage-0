@@ -782,7 +782,6 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.style.display = "block";
 
     const modalContent = `
-      <!-- Your modal content here -->
       <div class="title">
         <h2>Digital Library Cards</h2>
       </div>

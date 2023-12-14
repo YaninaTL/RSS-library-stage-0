@@ -1497,6 +1497,26 @@ main {
           padding-left: 1em;
         }
 
+        input::placeholder {
+          color: #8e8e8e;
+          font-family: Forum;
+          font-size: 2rem;
+          font-weight: 400;
+          line-height: 5rem; /* 166.667% */
+          letter-spacing: 0.06rem;
+        }
+
+        .custom-input:focus {
+          color: #bb945f;
+          font-family: Forum;
+        }
+
+        .custom-input:not(:placeholder-shown) {
+          color: #bb945f;
+          font-family: Forum;
+          font-weight: 400;
+        }
+
         button {
           color: #0c0c0e;
           text-align: center;
