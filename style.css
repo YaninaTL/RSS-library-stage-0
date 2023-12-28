@@ -175,6 +175,7 @@ h1 a {
   padding: 2em 0;
   background-color: #fff;
   z-index: 2;
+  border: #000000 1px solid;
 }
 #registerModal.modal h1 {
   font-family: var(--ff-head);
@@ -213,6 +214,7 @@ h1 a {
   background: var(--clr-primary-neutral);
   padding: 2em 0;
   z-index: 10;
+  border: #000000 1px solid;
 }
 #loginModal.center h1 {
   font-family: var(--ff-head);
@@ -1370,6 +1372,128 @@ main {
 
 .modal-card {
   display: none;
+  background: #fff;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border: black 2px solid;
+}
+.modal-card .left-col-card {
+  width: 60em;
+  height: 38em;
+}
+.modal-card .left-col-card h3 {
+  color: #000;
+  font-family: Inter;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.modal-card .left-col-card form {
+  border: 2px solid var(--clr-accent);
+  border-radius: 2px;
+  padding: 1em;
+  background-color: white;
+}
+.modal-card .left-col-card form .center-form {
+  background-color: #bb945f;
+  padding-bottom: 3em;
+}
+.modal-card .left-col-card form .center-form h2 {
+  color: #000;
+  font-family: Forum;
+  font-size: 2.3rem;
+  font-weight: 400;
+  line-height: 5rem; /* 166.667% */
+  letter-spacing: 0.06rem;
+  margin: 0;
+  text-align: left;
+  margin-left: 1.5em;
+}
+.modal-card .left-col-card form h2::before {
+  display: none;
+}
+.modal-card .left-col-card form .input-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-card .left-col-card form input {
+  border: 2px solid white;
+  border-radius: 2px;
+  width: 40em;
+  height: 3em;
+  padding-left: 1em;
+}
+.modal-card .left-col-card form button {
+  color: #0c0c0e;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  border: 1px solid black;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.modal-card .left-col-card form button:hover {
+  background-color: #bb945f;
+}
+.modal-card .left-col-card form .action-btn {
+  text-align: center;
+}
+.modal-card .right-col-card {
+  height: 38em;
+}
+.modal-card .right-col-card h3 {
+  color: #000;
+  text-align: right;
+  font-family: Forum;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+}
+.modal-card .right-col-card p {
+  color: #000;
+  text-align: right;
+  font-family: Inter;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 4rem; /* 200% */
+  letter-spacing: 0.04rem;
+}
+.modal-card .right-col-card .frame {
+  width: 45em;
+  margin: 3em 0;
+}
+.modal-card .right-col-card .btns {
+  text-align: right;
+}
+.modal-card .right-col-card .btns button {
+  color: #0c0c0e;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  background-color: #ffffff;
+  margin: 0.5em 1em;
+  padding: 0.5em 1em;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.modal-card .right-col-card .btns button:hover {
+  background-color: #bb945f;
 }
 
 .modal-stats {

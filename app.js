@@ -792,8 +792,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="center-form">
               <h2>Brooklyn Public Library</h2>
               <div class="input-frame">
-                <input type="text" required placeholder="${fullName}" />
-                <input type="text" required placeholder="${cardNumber}" />
+                <input type="text" required disabled placeholder="${fullName}" />
+                <input type="text" required disabled  placeholder="${cardNumber}" />
               </div>
             </div>
             <div class="modal-stats">
@@ -834,3 +834,92 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.innerHTML = modalContent;
   }
 });
+
+// //Login & reg btns
+// document.addEventListener("DOMContentLoaded", function () {
+//   const signupBtn = document.getElementById("signupBtn");
+//   const loginBtn = document.getElementById("loginBtn");
+//   const loginModalBtn = document.getElementById("loginModal");
+//   const registerModalBtn = document.getElementById("registerModal");
+
+//   // Function to display the login modal
+//   function displayLoginModal() {
+//     loginModalBtn.style.display = "block";
+//     registerModalBtn.style.display = "none";
+//   }
+
+//   // Function to display the register modal
+//   function displayRegisterModal() {
+//     loginModalBtn.style.display = "none";
+//     registerModalBtn.style.display = "block";
+//   }
+
+//   // Event listener for Sign Up button
+//   signupBtn.addEventListener("click", function () {
+//     displayRegisterModal();
+//   });
+
+//   // Event listener for Log In button
+//   loginBtn.addEventListener("click", function () {
+//     displayLoginModal();
+//   });
+
+//   // Close modals when close buttons are clicked
+//   document.querySelectorAll(".modal button").forEach(function (closeBtn) {
+//     closeBtn.addEventListener("click", function () {
+//       loginModalBtn.style.display = "none";
+//       registerModalBtn.style.display = "none";
+//     });
+//   });
+// });
+const ModalHandler = {
+  init: function () {
+    const signupBtn = document.getElementById("signupBtn");
+    const loginBtn = document.getElementById("loginBtn");
+    const loginModalBtn = document.getElementById("loginModal");
+    const registerModalBtn = document.getElementById("registerModal");
+
+    // Function to display the modal at the center of the screen
+    function displayModalCentered(modal) {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const modalHeight = modal.offsetHeight;
+
+      const topPosition = scrollTop + (windowHeight - modalHeight) / 2;
+      modal.style.top = topPosition + "px";
+      modal.style.display = "block";
+    }
+
+    // Function to display the login modal
+    function displayLoginModal() {
+      displayModalCentered(loginModalBtn);
+      registerModalBtn.style.display = "none";
+    }
+
+    // Function to display the register modal
+    function displayRegisterModal() {
+      displayModalCentered(registerModalBtn);
+      loginModalBtn.style.display = "none";
+    }
+
+    // Event listener for Sign Up button
+    signupBtn.addEventListener("click", function () {
+      displayRegisterModal();
+    });
+
+    // Event listener for Log In button
+    loginBtn.addEventListener("click", function () {
+      displayLoginModal();
+    });
+
+    // Close modals when close buttons are clicked
+    document.querySelectorAll(".modal button").forEach(function (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        loginModalBtn.style.display = "none";
+        registerModalBtn.style.display = "none";
+      });
+    });
+  },
+};
+// Call the init function to initialize the modal functionality for this specific use case
+ModalHandler.init();
