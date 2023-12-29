@@ -324,12 +324,12 @@ input[type=submit]:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+  border: #000 1px solid;
 }
 #profileModal.modal .center {
   margin: 0 auto;
   width: 60em;
   height: 100%;
-  margin-top: 3em;
   display: grid;
   position: relative;
 }
