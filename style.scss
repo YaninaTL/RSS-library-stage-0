@@ -1872,7 +1872,7 @@ footer {
       letter-spacing: 0.2rem;
     }
 
-    span {
+    a {
       color: #fff;
       text-align: center;
       font-family: Inter;
@@ -1880,6 +1880,8 @@ footer {
       font-weight: 400;
       line-height: 2rem; /* 100% */
       letter-spacing: 0.2rem;
+      cursor: pointer;
+      text-decoration: none;
     }
   }
 
