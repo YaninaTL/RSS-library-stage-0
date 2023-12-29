@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const storedSurname = "Doe"; // Simulated stored surname
   const storedEmail = "john.doe@hotmail.com"; // Simulated stored email
   const storedCard = "F00234030"; // Simulated stored card number
-  const storedPassword = "12345%JD"; // Simulated stored password
+  const storedPassword = "12345%uJD"; // Simulated stored password
 
   const loginForm = document.querySelector("#loginModal form");
   loginForm.addEventListener("submit", function (event) {
@@ -480,11 +480,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// fix gallery big imgs -> sometimes don't have time to load?
-
 //BUYING
-// modal.js
-
 document.addEventListener("DOMContentLoaded", function () {
   const buyButtons = document.querySelectorAll(".buy-button");
   const modal = document.getElementById("buy-popup");
@@ -501,8 +497,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//validation of the form
-//card number
+// validation of the form
+// card number
 document
   .getElementById("card-number")
   .addEventListener("input", function (event) {
@@ -523,7 +519,7 @@ document
     }
   });
 
-//moth
+//month
 document.getElementById("month").addEventListener("input", function (event) {
   const input = event.target.value;
   const sanitizedInput = input.replace(/\D/g, ""); // Remove non-numeric characters
@@ -537,31 +533,6 @@ document.getElementById("month").addEventListener("input", function (event) {
   }
 });
 
-//year
-// document.addEventListener("DOMContentLoaded", function () {
-//   const yearInput = document.getElementById("year");
-//   const expirationError = document.getElementById("expiration-error");
-
-//   yearInput.addEventListener("input", function () {
-//     const yearValue = yearInput.value;
-//     const currentYear = new Date().getFullYear() % 100; // Get last two digits of the current year
-
-//     if (!/^\d{2}$/.test(yearValue)) {
-//       expirationError.textContent = "Please enter a valid year.";
-//       yearInput.classList.add("error");
-//     } else {
-//       const numericYear = parseInt(yearValue);
-//       if (numericYear < currentYear || numericYear > currentYear + 10) {
-//         expirationError.textContent =
-//           "Please enter a valid year within the next 10 years.";
-//         yearInput.classList.add("error");
-//       } else {
-//         expirationError.textContent = "";
-//         yearInput.classList.remove("error");
-//       }
-//     }
-//   });
-// });
 document.addEventListener("DOMContentLoaded", function () {
   const yearInput = document.getElementById("year");
   const expirationError = document.getElementById("expiration-error");
@@ -750,40 +721,115 @@ document
     }
   });
 
-//CARD MODAL
+//Section when checked and logged
+// document.addEventListener("DOMContentLoaded", function () {
+//   const checkCardBtn = document.getElementById("checkCardBtn");
+
+//   const storedFullName = "John Doe"; // Simulated stored full name
+//   const storedCard = "F00234030"; // Simulated stored card number
+
+//   if (checkCardBtn) {
+//     checkCardBtn.addEventListener("click", function (event) {
+//       event.preventDefault(); // Prevent form submission
+
+//       const readerNameInput = document.getElementById("readerNameInput");
+//       const cardNumberInput = document.getElementById("cardNumberInput");
+
+//       if (readerNameInput && cardNumberInput) {
+//         const enteredFullName = readerNameInput.value.trim();
+//         const enteredCard = cardNumberInput.value.trim();
+
+//         if (enteredFullName === storedFullName && enteredCard === storedCard) {
+//           updateSectionContent(storedFullName, storedCard);
+//         } else {
+//           alert("Invalid name or card number. Please try again.");
+//         }
+//       }
+//     });
+//   }
+
+//   function updateSectionContent(fullName, cardNumber) {
+//     const section = document.getElementById("cards");
+//     const sectionContent = `
+//       <div class="title">
+//         <h2>Your Library Card</h2>
+//       </div>
+//       <div class="wrapper-libcard">
+//         <div class="left-col-card">
+//           <h3>Your Library card</h3>
+//           <form action="" method="">
+//             <div class="center-form">
+//               <h2>Brooklyn Public Library</h2>
+//               <div class="input-frame">
+//                 <input type="text" required disabled placeholder="${fullName}" />
+//                 <input type="text" required disabled  placeholder="${cardNumber}" />
+//               </div>
+//             </div>
+//             <div class="modal-stats">
+//               <div class="first-card">
+//                 <h3 class="stats-title">Visits</h3>
+//                 <img src="./img/Union.svg" alt="" />
+//                 <div class="number">23</div>
+//               </div>
+//               <div class="second-card">
+//                 <h3 class="stats-title">Bonuses</h3>
+//                 <img src="./img/Star.svg" alt="" />
+//                 <div class="number">1240</div>
+//               </div>
+//               <div class="third-card">
+//                 <h3 class="stats-title">Books</h3>
+//                 <img src="./img/book.svg" alt="" />
+//                 <div class="number">2</div>
+//               </div>
+//             </div>
+//           </form>
+//         </div>
+//         <div class="right-col-card">
+//           <h3>Visit your profile</h3>
+//           <div class="frame">
+//             <p>
+//               With a digital library card you get free access to the Library’s
+//               wide array of digital resources including e-books, databases,
+//               educational resources, and more.
+//             </p>
+//           </div>
+//           <div class="btns">
+//             <button id="profileBtn" type="submit">Profile</button>
+//           </div>
+//         </div>
+//       </div>
+//     </section>`;
+
+//     section.innerHTML = sectionContent;
+//   }
+// });
 document.addEventListener("DOMContentLoaded", function () {
-  const checkCardBtn = document.getElementById("checkCardBtn");
+  const storedFullName = "John Doe"; // Simulated stored full name
+  const storedCard = "F00234030"; // Simulated stored card number
 
-  if (checkCardBtn) {
-    checkCardBtn.addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent form submission
+  function setupProfileModal() {
+    const profileBtn = document.querySelector(
+      "#cards .right-col-card button[type='submit']"
+    );
+    const profileModal = document.getElementById("profileModal");
+    const closeProfilePopupBtn = document.getElementById("close-profile-popup");
 
-      const storedFullName = "John Doe"; // Simulated stored full name
-      const storedCard = "F00234030"; // Simulated stored card number
+    if (profileBtn && profileModal && closeProfilePopupBtn) {
+      profileBtn.addEventListener("click", function () {
+        profileModal.style.display = "block";
+      });
 
-      const readerNameInput = document.getElementById("readerNameInput");
-      const cardNumberInput = document.getElementById("cardNumberInput");
-
-      if (readerNameInput && cardNumberInput) {
-        const enteredFullName = readerNameInput.value.trim();
-        const enteredCard = cardNumberInput.value.trim();
-
-        if (enteredFullName === storedFullName && enteredCard === storedCard) {
-          showCardModal(storedFullName, storedCard);
-        } else {
-          alert("Invalid name or card number. Please try again.");
-        }
-      }
-    });
+      closeProfilePopupBtn.addEventListener("click", function () {
+        profileModal.style.display = "none";
+      });
+    }
   }
 
-  function showCardModal(fullName, cardNumber) {
-    const modal = document.getElementById("modalcards");
-    modal.style.display = "block";
-
-    const modalContent = `
+  function updateSectionContent(fullName, cardNumber) {
+    const section = document.getElementById("cards");
+    const sectionContent = `
       <div class="title">
-        <h2>Digital Library Cards</h2>
+        <h2>Your Library Card</h2>
       </div>
       <div class="wrapper-libcard">
         <div class="left-col-card">
@@ -825,53 +871,40 @@ document.addEventListener("DOMContentLoaded", function () {
             </p>
           </div>
           <div class="btns">
-            <button type="submit">Profile</button>
+            <button id="profileBtn" type="submit">Profile</button>
           </div>
         </div>
       </div>
     </section>`;
 
-    modal.innerHTML = modalContent;
+    section.innerHTML = sectionContent;
+    setupProfileModal(); // Call this function to set up the modal event listeners
+  }
+
+  const checkCardBtn = document.getElementById("checkCardBtn");
+
+  if (checkCardBtn) {
+    checkCardBtn.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      const readerNameInput = document.getElementById("readerNameInput");
+      const cardNumberInput = document.getElementById("cardNumberInput");
+
+      if (readerNameInput && cardNumberInput) {
+        const enteredFullName = readerNameInput.value.trim();
+        const enteredCard = cardNumberInput.value.trim();
+
+        if (enteredFullName === storedFullName && enteredCard === storedCard) {
+          updateSectionContent(storedFullName, storedCard);
+        } else {
+          alert("Invalid name or card number. Please try again.");
+        }
+      }
+    });
   }
 });
 
 // //Login & reg btns
-// document.addEventListener("DOMContentLoaded", function () {
-//   const signupBtn = document.getElementById("signupBtn");
-//   const loginBtn = document.getElementById("loginBtn");
-//   const loginModalBtn = document.getElementById("loginModal");
-//   const registerModalBtn = document.getElementById("registerModal");
-
-//   // Function to display the login modal
-//   function displayLoginModal() {
-//     loginModalBtn.style.display = "block";
-//     registerModalBtn.style.display = "none";
-//   }
-
-//   // Function to display the register modal
-//   function displayRegisterModal() {
-//     loginModalBtn.style.display = "none";
-//     registerModalBtn.style.display = "block";
-//   }
-
-//   // Event listener for Sign Up button
-//   signupBtn.addEventListener("click", function () {
-//     displayRegisterModal();
-//   });
-
-//   // Event listener for Log In button
-//   loginBtn.addEventListener("click", function () {
-//     displayLoginModal();
-//   });
-
-//   // Close modals when close buttons are clicked
-//   document.querySelectorAll(".modal button").forEach(function (closeBtn) {
-//     closeBtn.addEventListener("click", function () {
-//       loginModalBtn.style.display = "none";
-//       registerModalBtn.style.display = "none";
-//     });
-//   });
-// });
 const ModalHandler = {
   init: function () {
     const signupBtn = document.getElementById("signupBtn");
